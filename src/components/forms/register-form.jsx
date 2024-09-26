@@ -1,23 +1,23 @@
 'use client';
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as Yup from "yup";
-import { useRouter,redirect } from "next/navigation";
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as Yup from 'yup';
+import { useRouter, redirect } from 'next/navigation';
 // internal
-import { CloseEye, OpenEye } from "@/svg";
-import ErrorMsg from "../common/error-msg";
-import { notifyError, notifySuccess } from "@/utils/toast";
-import { useRegisterUserMutation } from "@/redux/features/auth/authApi";
+import { CloseEye, OpenEye } from '@/svg';
+import ErrorMsg from '../common/error-msg';
+import { notifyError, notifySuccess } from '@/utils/toast';
+import { useRegisterUserMutation } from '@/redux/features/auth/authApi';
 
 // schema
 const schema = Yup.object().shape({
-  name: Yup.string().required().label("Name"),
-  email: Yup.string().required().email().label("Email"),
-  password: Yup.string().required().min(6).label("Password"),
+  name: Yup.string().required().label('Name'),
+  email: Yup.string().required().email().label('Email'),
+  password: Yup.string().required().min(6).label('Password'),
   remember: Yup.bool()
-    .oneOf([true], "You must agree to the terms and conditions to proceed.")
-    .label("Terms and Conditions"),
+    .oneOf([true], 'You must agree to the terms and conditions to proceed.')
+    .label('Terms and Conditions'),
 });
 
 const RegisterForm = () => {
@@ -25,18 +25,23 @@ const RegisterForm = () => {
   const [registerUser, {}] = useRegisterUserMutation();
   const router = useRouter();
   // react hook form
-  const {register,handleSubmit,formState: { errors },reset} = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
     resolver: yupResolver(schema),
   });
   // on submit
-  const onSubmit = (data) => {
+  const onSubmit = data => {
     registerUser({
       name: data.name,
       email: data.email,
       password: data.password,
-    }).then((result) => {
+    }).then(result => {
       if (result?.error) {
-        notifyError("Register Failed");
+        notifyError('Register Failed');
       } else {
         notifySuccess(result?.data?.message);
         router.push('/checkout');
@@ -50,7 +55,7 @@ const RegisterForm = () => {
         <div className="tp-login-input-box">
           <div className="tp-login-input">
             <input
-              {...register("name", { required: `Name is required!` })}
+              {...register('name', { required: `Name is required!` })}
               id="name"
               name="name"
               type="text"
@@ -65,11 +70,11 @@ const RegisterForm = () => {
         <div className="tp-login-input-box">
           <div className="tp-login-input">
             <input
-              {...register("email", { required: `Email is required!` })}
+              {...register('email', { required: `Email is required!` })}
               id="email"
               name="email"
               type="email"
-              placeholder="shofy@mail.com"
+              placeholder="ewo@mail.com"
             />
           </div>
           <div className="tp-login-input-title">
@@ -81,10 +86,10 @@ const RegisterForm = () => {
           <div className="p-relative">
             <div className="tp-login-input">
               <input
-                {...register("password", { required: `Password is required!` })}
+                {...register('password', { required: `Password is required!` })}
                 id="password"
                 name="password"
-                type={showPass ? "text" : "password"}
+                type={showPass ? 'text' : 'password'}
                 placeholder="Min. 6 character"
               />
             </div>
@@ -103,7 +108,7 @@ const RegisterForm = () => {
       <div className="tp-login-suggetions d-sm-flex align-items-center justify-content-between mb-20">
         <div className="tp-login-remeber">
           <input
-            {...register("remember", {
+            {...register('remember', {
               required: `Terms and Conditions is required!`,
             })}
             id="remember"

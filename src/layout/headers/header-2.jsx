@@ -5,18 +5,26 @@ import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
 // internal
 import Menus from './header-com/menus';
-import logo from '@assets/img/logo/logo.svg';
+import logo from '@assets/img/logo/logo.png';
 import useSticky from '@/hooks/use-sticky';
 import useCartInfo from '@/hooks/use-cart-info';
 import { openCartMini } from '@/redux/features/cartSlice';
 import HeaderTopRight from './header-com/header-top-right';
 import CartMiniSidebar from '@/components/common/cart-mini-sidebar';
-import { CartTwo, Compare, Facebook, Menu, PhoneTwo, Wishlist, Search } from '@/svg';
+import {
+  CartTwo,
+  Compare,
+  Facebook,
+  Menu,
+  PhoneTwo,
+  Wishlist,
+  Search,
+} from '@/svg';
 import useSearchFormSubmit from '@/hooks/use-search-form-submit';
 import OffCanvas from '@/components/common/off-canvas';
 
 const HeaderTwo = ({ style_2 = false }) => {
-  const { wishlist } = useSelector((state) => state.wishlist);
+  const { wishlist } = useSelector(state => state.wishlist);
   const [isOffCanvasOpen, setIsCanvasOpen] = useState(false);
   const { setSearchText, handleSubmit, searchText } = useSearchFormSubmit();
   const { quantity } = useCartInfo();
@@ -25,7 +33,11 @@ const HeaderTwo = ({ style_2 = false }) => {
   return (
     <>
       <header>
-        <div className={`tp-header-area tp-header-style-${style_2 ? 'primary' : 'darkRed'} tp-header-height`}>
+        <div
+          className={`tp-header-area tp-header-style-${
+            style_2 ? 'primary' : 'darkRed'
+          } tp-header-height`}
+        >
           <div className="tp-header-top-2 p-relative z-index-11 tp-header-top-border d-none d-md-block">
             <div className="container">
               <div className="row align-items-center">
@@ -35,14 +47,16 @@ const HeaderTwo = ({ style_2 = false }) => {
                       <a href="#">
                         <span>
                           <Facebook />
-                        </span> 7500k Followers
+                        </span>{' '}
+                        7500k Followers
                       </a>
                     </div>
                     <div className="tp-header-info-item">
                       <a href="tel:402-763-282-46">
                         <span>
                           <PhoneTwo />
-                        </span> +(402) 763 282 46
+                        </span>{' '}
+                        +(402) 763 282 46
                       </a>
                     </div>
                   </div>
@@ -56,14 +70,19 @@ const HeaderTwo = ({ style_2 = false }) => {
             </div>
           </div>
 
-          <div id="header-sticky" className={`tp-header-bottom-2 tp-header-sticky ${sticky ? 'header-sticky' : ''}`}>
+          <div
+            id="header-sticky"
+            className={`tp-header-bottom-2 tp-header-sticky ${
+              sticky ? 'header-sticky' : ''
+            }`}
+          >
             <div className="container">
               <div className="tp-mega-menu-wrapper p-relative">
                 <div className="row align-items-center">
                   <div className="col-xl-2 col-lg-5 col-md-5 col-sm-4 col-6">
                     <div className="logo">
                       <Link href="/">
-                        <Image src={logo} alt="logo" priority />
+                        <Image src={logo} alt="logo" width={120} priority />
                       </Link>
                     </div>
                   </div>
@@ -79,10 +98,11 @@ const HeaderTwo = ({ style_2 = false }) => {
                       <div className="tp-header-search-2 d-none d-sm-block">
                         <form onSubmit={handleSubmit}>
                           <input
-                            onChange={(e) => setSearchText(e.target.value)}
+                            onChange={e => setSearchText(e.target.value)}
                             value={searchText}
                             type="text"
-                            placeholder="Search for Products..." />
+                            placeholder="Search for Products..."
+                          />
                           <button type="submit">
                             <Search />
                           </button>
@@ -90,24 +110,41 @@ const HeaderTwo = ({ style_2 = false }) => {
                       </div>
                       <div className="tp-header-action d-flex align-items-center ml-30">
                         <div className="tp-header-action-item d-none d-lg-block">
-                          <Link href="/compare" className="tp-header-action-btn">
+                          <Link
+                            href="/compare"
+                            className="tp-header-action-btn"
+                          >
                             <Compare />
                           </Link>
                         </div>
                         <div className="tp-header-action-item d-none d-lg-block">
-                          <Link href="/wishlist" className="tp-header-action-btn">
+                          <Link
+                            href="/wishlist"
+                            className="tp-header-action-btn"
+                          >
                             <Wishlist />
-                            <span className="tp-header-action-badge">{wishlist.length}</span>
+                            <span className="tp-header-action-badge">
+                              {wishlist.length}
+                            </span>
                           </Link>
                         </div>
                         <div className="tp-header-action-item">
-                          <button onClick={() => dispatch(openCartMini())} className="tp-header-action-btn cartmini-open-btn" >
+                          <button
+                            onClick={() => dispatch(openCartMini())}
+                            className="tp-header-action-btn cartmini-open-btn"
+                          >
                             <CartTwo />
-                            <span className="tp-header-action-badge">{quantity}</span>
+                            <span className="tp-header-action-badge">
+                              {quantity}
+                            </span>
                           </button>
                         </div>
                         <div className="tp-header-action-item tp-header-hamburger mr-20 d-xl-none">
-                          <button onClick={() => setIsCanvasOpen(true)} type="button" className="tp-offcanvas-open-btn">
+                          <button
+                            onClick={() => setIsCanvasOpen(true)}
+                            type="button"
+                            className="tp-offcanvas-open-btn"
+                          >
                             <Menu />
                           </button>
                         </div>
@@ -126,7 +163,11 @@ const HeaderTwo = ({ style_2 = false }) => {
       {/* cart mini sidebar end */}
 
       {/* off canvas start */}
-      <OffCanvas isOffCanvasOpen={isOffCanvasOpen} setIsCanvasOpen={setIsCanvasOpen} categoryType="fashion" />
+      <OffCanvas
+        isOffCanvasOpen={isOffCanvasOpen}
+        setIsCanvasOpen={setIsCanvasOpen}
+        categoryType="fashion"
+      />
       {/* off canvas end */}
     </>
   );

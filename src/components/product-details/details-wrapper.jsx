@@ -12,12 +12,32 @@ import { add_cart_product } from '@/redux/features/cartSlice';
 import { add_to_wishlist } from '@/redux/features/wishlist-slice';
 import { add_to_compare } from '@/redux/features/compareSlice';
 import { handleModalClose } from '@/redux/features/productModalSlice';
+import DOMPurify from 'dompurify';
+import ReactShowMoreText from 'react-show-more-text';
 
-const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBottom = false }) => {
-  const { sku, img, title, imageURLs, category, description, discount, price, status, reviews, tags, offerDate } = productItem || {};
+const DetailsWrapper = ({
+  productItem,
+  handleImageActive,
+  activeImg,
+  detailsBottom = false,
+}) => {
+  const {
+    sku,
+    img,
+    title,
+    imageURLs,
+    category,
+    description,
+    discount,
+    price,
+    status,
+    reviews,
+    tags,
+    offerDate,
+  } = productItem || {};
   const [ratingVal, setRatingVal] = useState(0);
-  const [textMore, setTextMore] = useState(false);
-  const dispatch = useDispatch()
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (reviews && reviews.length > 0) {
@@ -31,17 +51,17 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
   }, [reviews]);
 
   // handle add product
-  const handleAddProduct = (prd) => {
+  const handleAddProduct = prd => {
     dispatch(add_cart_product(prd));
   };
 
   // handle wishlist product
-  const handleWishlistProduct = (prd) => {
+  const handleWishlistProduct = prd => {
     dispatch(add_to_wishlist(prd));
   };
 
   // handle compare product
-  const handleCompareProduct = (prd) => {
+  const handleCompareProduct = prd => {
     dispatch(add_to_compare(prd));
   };
 
@@ -59,16 +79,41 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
         </div>
         <div className="tp-product-details-rating-wrapper d-flex align-items-center mb-10">
           <div className="tp-product-details-rating">
-            <Rating allowFraction size={16} initialValue={ratingVal} readonly={true} />
+            <Rating
+              allowFraction
+              size={16}
+              initialValue={ratingVal}
+              readonly={true}
+            />
           </div>
           <div className="tp-product-details-reviews">
-            <span>({reviews && reviews.length > 0 ? reviews.length : 0} Review)</span>
+            <span>
+              ({reviews && reviews.length > 0 ? reviews.length : 0} Review)
+            </span>
           </div>
         </div>
       </div>
-      <p>{textMore ? description : `${description.substring(0, 100)}...`}
-        <span onClick={() => setTextMore(!textMore)}>{textMore ? 'See less' : 'See more'}</span>
-      </p>
+      <div>
+        {/* show more testing */}
+        <ReactShowMoreText
+          /* Default options */
+          lines={2}
+          more="Show more"
+          less="Show less"
+          className="tp-product-details-wrapper-description"
+          anchorClass="show-more-less-clickable"
+          expanded={false}
+          width={280}
+          truncatedEndingComponent={'... '}
+        >
+          <div
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(description),
+            }}
+          />
+        </ReactShowMoreText>
+        {/* show more  */}
+      </div>
 
       {/* price */}
       <div className="tp-product-details-price-wrapper mb-20">
@@ -76,39 +121,56 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
           <>
             <span className="tp-product-details-price old-price">${price}</span>
             <span className="tp-product-details-price new-price">
-              {" "}${(Number(price) - (Number(price) * Number(discount)) / 100).toFixed(2)}
+              {' '}
+              $
+              {(
+                Number(price) -
+                (Number(price) * Number(discount)) / 100
+              ).toFixed(2)}
             </span>
           </>
         ) : (
-          <span className="tp-product-details-price new-price">${price.toFixed(2)}</span>
+          <span className="tp-product-details-price new-price">
+            ${price.toFixed(2)}
+          </span>
         )}
       </div>
 
       {/* variations */}
-      {imageURLs.some(item => item?.color && item?.color?.name) && <div className="tp-product-details-variation">
-        <div className="tp-product-details-variation-item">
-          <h4 className="tp-product-details-variation-title">Color :</h4>
-          <div className="tp-product-details-variation-list">
-            {imageURLs.map((item, i) => (
-              <button onClick={() => handleImageActive(item)} key={i} type="button"
-                className={`color tp-color-variation-btn ${item.img === activeImg ? "active" : ""}`} >
-                <span
-                  data-bg-color={`${item.color.clrCode}`}
-                  style={{ backgroundColor: `${item.color.clrCode}` }}
-                ></span>
-                {item.color && item.color.name && (
-                  <span className="tp-color-variation-tootltip">
-                    {item.color.name}
-                  </span>
-                )}
-              </button>
-            ))}
+      {imageURLs.some(item => item?.color && item?.color?.name) && (
+        <div className="tp-product-details-variation">
+          <div className="tp-product-details-variation-item">
+            <h4 className="tp-product-details-variation-title">Color :</h4>
+            <div className="tp-product-details-variation-list">
+              {imageURLs.map((item, i) => (
+                <button
+                  onClick={() => handleImageActive(item)}
+                  key={i}
+                  type="button"
+                  className={`color tp-color-variation-btn ${
+                    item.img === activeImg ? 'active' : ''
+                  }`}
+                >
+                  <span
+                    data-bg-color={`${item.color.clrCode}`}
+                    style={{ backgroundColor: `${item.color.clrCode}` }}
+                  ></span>
+                  {item.color && item.color.name && (
+                    <span className="tp-color-variation-tootltip">
+                      {item.color.name}
+                    </span>
+                  )}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
-      </div>}
+      )}
 
       {/* if ProductDetailsCountdown true start */}
-      {offerDate?.endDate && <ProductDetailsCountdown offerExpiryTime={offerDate?.endDate} />}
+      {offerDate?.endDate && (
+        <ProductDetailsCountdown offerExpiryTime={offerDate?.endDate} />
+      )}
       {/* if ProductDetailsCountdown true end */}
 
       {/* actions */}
@@ -119,31 +181,51 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
           <ProductQuantity />
           {/* product quantity */}
           <div className="tp-product-details-add-to-cart mb-15 w-100">
-            <button onClick={() => handleAddProduct(productItem)} disabled={status === 'out-of-stock'} className="tp-product-details-add-to-cart-btn w-100">Add To Cart</button>
+            <button
+              onClick={() => handleAddProduct(productItem)}
+              disabled={status === 'out-of-stock'}
+              className="tp-product-details-add-to-cart-btn w-100"
+            >
+              Add To Cart
+            </button>
           </div>
         </div>
         <Link href="/cart" onClick={() => dispatch(handleModalClose())}>
-          <button className="tp-product-details-buy-now-btn w-100">Buy Now</button>
+          <button className="tp-product-details-buy-now-btn w-100">
+            Buy Now
+          </button>
         </Link>
       </div>
       {/* product-details-action-sm start */}
       <div className="tp-product-details-action-sm">
-        <button disabled={status === 'out-of-stock'} onClick={() => handleCompareProduct(productItem)} type="button" className="tp-product-details-action-sm-btn">
+        <button
+          disabled={status === 'out-of-stock'}
+          onClick={() => handleCompareProduct(productItem)}
+          type="button"
+          className="tp-product-details-action-sm-btn"
+        >
           <CompareTwo />
           Compare
         </button>
-        <button disabled={status === 'out-of-stock'} onClick={() => handleWishlistProduct(productItem)} type="button" className="tp-product-details-action-sm-btn">
+        <button
+          disabled={status === 'out-of-stock'}
+          onClick={() => handleWishlistProduct(productItem)}
+          type="button"
+          className="tp-product-details-action-sm-btn"
+        >
           <WishlistTwo />
           Add Wishlist
         </button>
-        <button type="button" className="tp-product-details-action-sm-btn">
+        {/* <button type="button" className="tp-product-details-action-sm-btn">
           <AskQuestion />
           Ask a question
-        </button>
+        </button> */}
       </div>
       {/* product-details-action-sm end */}
 
-      {detailsBottom && <DetailsBottomInfo category={category?.name} sku={sku} tag={tags[0]} />}
+      {detailsBottom && (
+        <DetailsBottomInfo category={category?.name} sku={sku} tag={tags[0]} />
+      )}
     </div>
   );
 };

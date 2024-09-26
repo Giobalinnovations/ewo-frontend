@@ -1,12 +1,11 @@
-import Wrapper from "@/layout/wrapper";
-import HeaderTwo from "@/layout/headers/header-2";
-import Footer from "@/layout/footers/footer";
-import BlogDetailsArea from "@/components/blog-details/blog-details-area";
-import blogData from "@/data/blog-data";
-
+import Wrapper from '@/layout/wrapper';
+import HeaderTwo from '@/layout/headers/header-2';
+import Footer from '@/layout/footers/footer';
+import BlogDetailsArea from '@/components/blog-details/blog-details-area';
+import blogData from '@/data/blog-data';
 
 export const metadata = {
-  title: "Shofy - Blog Details Page",
+  title: 'ewo - Blog Details Page',
 };
 
 export default function BlogDetailsPage() {

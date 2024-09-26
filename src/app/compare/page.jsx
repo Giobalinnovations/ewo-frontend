@@ -1,11 +1,11 @@
-import Wrapper from "@/layout/wrapper";
-import HeaderTwo from "@/layout/headers/header-2";
-import Footer from "@/layout/footers/footer";
-import CommonBreadcrumb from "@/components/breadcrumb/common-breadcrumb";
-import CompareArea from "@/components/compare/compare-area";
+import Wrapper from '@/layout/wrapper';
+import HeaderTwo from '@/layout/headers/header-2';
+import Footer from '@/layout/footers/footer';
+import CommonBreadcrumb from '@/components/breadcrumb/common-breadcrumb';
+import CompareArea from '@/components/compare/compare-area';
 
 export const metadata = {
-  title: "Shofy - Compare Page",
+  title: 'ewo - Compare Page',
 };
 
 export default function ComparePage() {
@@ -13,7 +13,7 @@ export default function ComparePage() {
     <Wrapper>
       <HeaderTwo style_2={true} />
       <CommonBreadcrumb title="Compare" subtitle="Compare" />
-      <CompareArea/>
+      <CompareArea />
       <Footer primary_style={true} />
     </Wrapper>
   );

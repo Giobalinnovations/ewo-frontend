@@ -1,13 +1,13 @@
 'use client';
-import React, { useState, useEffect } from "react";
-import DetailsThumbWrapper from "./details-thumb-wrapper";
-import DetailsWrapper from "./details-wrapper";
-import { useDispatch } from "react-redux";
-import DetailsTabNav from "./details-tab-nav";
-import RelatedProducts from "./related-products";
+import React, { useState, useEffect } from 'react';
+import DetailsThumbWrapper from './details-thumb-wrapper';
+import DetailsWrapper from './details-wrapper';
+import { useDispatch } from 'react-redux';
+import DetailsTabNav from './details-tab-nav';
+import RelatedProducts from './related-products';
 
 const ProductDetailsContent = ({ productItem }) => {
-  const { _id, img, imageURLs, videoId,status } = productItem || {};
+  const { _id, img, imageURLs, videoId, status } = productItem || {};
   const [activeImg, setActiveImg] = useState(img);
   const dispatch = useDispatch();
   // active image change when img change
@@ -16,7 +16,7 @@ const ProductDetailsContent = ({ productItem }) => {
   }, [img]);
 
   // handle image active
-  const handleImageActive = (item) => {
+  const handleImageActive = item => {
     setActiveImg(item.img);
   };
   return (

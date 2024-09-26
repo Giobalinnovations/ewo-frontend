@@ -1,11 +1,11 @@
-import Wrapper from "@/layout/wrapper";
-import HeaderTwo from "@/layout/headers/header-2";
-import Footer from "@/layout/footers/footer";
-import CommonBreadcrumb from "@/components/breadcrumb/common-breadcrumb";
-import RegisterArea from "@/components/login-register/register-area";
+import Wrapper from '@/layout/wrapper';
+import HeaderTwo from '@/layout/headers/header-2';
+import Footer from '@/layout/footers/footer';
+import CommonBreadcrumb from '@/components/breadcrumb/common-breadcrumb';
+import RegisterArea from '@/components/login-register/register-area';
 
 export const metadata = {
-  title: "Shofy - Register Page",
+  title: 'ewo - Register Page',
 };
 
 export default function RegisterPage() {

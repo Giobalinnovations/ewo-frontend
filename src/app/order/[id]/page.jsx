@@ -1,10 +1,10 @@
-import Wrapper from "@/layout/wrapper";
-import HeaderTwo from "@/layout/headers/header-2";
-import Footer from "@/layout/footers/footer";
-import OrderArea from "@/components/order/order-area";
+import Wrapper from '@/layout/wrapper';
+import HeaderTwo from '@/layout/headers/header-2';
+import Footer from '@/layout/footers/footer';
+import OrderArea from '@/components/order/order-area';
 
 export const metadata = {
-  title: "Shofy - Order Page",
+  title: 'ewo - Order Page',
 };
 
 export default function OrderPage({ params }) {

@@ -1,12 +1,11 @@
-import Wrapper from "@/layout/wrapper";
-import HeaderTwo from "@/layout/headers/header-2";
-import CommonBreadcrumb from "@/components/breadcrumb/common-breadcrumb";
-import SearchArea from "@/components/search/search-area";
-import Footer from "@/layout/footers/footer";
-
+import Wrapper from '@/layout/wrapper';
+import HeaderTwo from '@/layout/headers/header-2';
+import CommonBreadcrumb from '@/components/breadcrumb/common-breadcrumb';
+import SearchArea from '@/components/search/search-area';
+import Footer from '@/layout/footers/footer';
 
 export const metadata = {
-  title: "Shofy - Search Page",
+  title: 'ewo - Search Page',
 };
 
 export default function SearchPage() {

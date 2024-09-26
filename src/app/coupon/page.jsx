@@ -1,11 +1,11 @@
-import Wrapper from "@/layout/wrapper";
+import Wrapper from '@/layout/wrapper';
 import HeaderTwo from '@/layout/headers/header-2';
 import CommonBreadcrumb from '@/components/breadcrumb/common-breadcrumb';
 import CouponArea from '@/components/coupon/coupon-area';
 import Footer from '@/layout/footers/footer';
 
 export const metadata = {
-  title: "Shofy - Coupon Page",
+  title: 'ewo - Coupon Page',
 };
 
 export default function CouponPage() {
