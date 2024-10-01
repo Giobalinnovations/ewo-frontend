@@ -1,27 +1,38 @@
 'use client';
-import React, { useRef } from "react";
-import Image from "next/image";
-import dayjs from "dayjs";
-import ReactToPrint from "react-to-print";
+import React, { useRef } from 'react';
+import Image from 'next/image';
+import dayjs from 'dayjs';
+import ReactToPrint from 'react-to-print';
 // internal
-import logo from "@assets/img/logo/logo.svg";
-import ErrorMsg from "@/components/common/error-msg";
-import { useGetUserOrderByIdQuery } from "@/redux/features/order/orderApi";
-import PrdDetailsLoader from "@/components/loader/prd-details-loader";
-
+import logo from '@assets/img/logo/logo.png';
+import ErrorMsg from '@/components/common/error-msg';
+import { useGetUserOrderByIdQuery } from '@/redux/features/order/orderApi';
+import PrdDetailsLoader from '@/components/loader/prd-details-loader';
 
 const OrderArea = ({ orderId }) => {
   const printRef = useRef();
   const { data: order, isError, isLoading } = useGetUserOrderByIdQuery(orderId);
   let content = null;
   if (isLoading) {
-    content = <PrdDetailsLoader loading={isLoading}/>
+    content = <PrdDetailsLoader loading={isLoading} />;
   }
   if (isError) {
     content = <ErrorMsg msg="There was an error" />;
   }
   if (!isLoading && !isError) {
-    const { name, country, city, contact, invoice, createdAt, cart, shippingCost, discount, totalAmount,paymentMethod} = order.order;
+    const {
+      name,
+      country,
+      city,
+      contact,
+      invoice,
+      createdAt,
+      cart,
+      shippingCost,
+      discount,
+      totalAmount,
+      paymentMethod,
+    } = order.order;
     content = (
       <>
         <section className="invoice__area pt-120 pb-120">
@@ -30,12 +41,18 @@ const OrderArea = ({ orderId }) => {
               <div className="row">
                 <div className="col-xl-12">
                   <div className="invoice_msg mb-40">
-                    <p className="text-black alert alert-success">Thank you <strong>{name}</strong> Your order have been received ! </p>
+                    <p className="text-black alert alert-success">
+                      Thank you <strong>{name}</strong> Your order have been
+                      received !{' '}
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
-            <div ref={printRef} className="invoice__wrapper grey-bg-2 pt-40 pb-40 pl-40 pr-40 tp-invoice-print-wrapper">
+            <div
+              ref={printRef}
+              className="invoice__wrapper grey-bg-2 pt-40 pb-40 pl-40 pr-40 tp-invoice-print-wrapper"
+            >
               <div className="invoice__header-wrapper border-2 border-bottom border-white mb-40">
                 <div className="row">
                   <div className="col-xl-12">
@@ -43,13 +60,17 @@ const OrderArea = ({ orderId }) => {
                       <div className="row align-items-end">
                         <div className="col-md-4 col-sm-6">
                           <div className="invoice__left">
-                            <Image src={logo} alt="logo" />
-                            <p>2879 Elk Creek Road <br /> Stone Mountain, Georgia </p>
+                            <Image src={logo} alt="logo" width={120} />
+                            <p>
+                              2879 Elk Creek Road <br /> Stone Mountain, Georgia{' '}
+                            </p>
                           </div>
                         </div>
                         <div className="col-md-8 col-sm-6">
                           <div className="invoice__right mt-15 mt-sm-0 text-sm-end">
-                            <h3 className="text-uppercase font-70 mb-20">Invoice</h3>
+                            <h3 className="text-uppercase font-70 mb-20">
+                              Invoice
+                            </h3>
                           </div>
                         </div>
                       </div>
@@ -73,7 +94,8 @@ const OrderArea = ({ orderId }) => {
                         <strong>Invoice ID:</strong> #{invoice}
                       </p>
                       <p className="mb-0">
-                        <strong>Date:</strong> {dayjs(createdAt).format("MMMM D, YYYY")}
+                        <strong>Date:</strong>{' '}
+                        {dayjs(createdAt).format('MMMM D, YYYY')}
                       </p>
                     </div>
                   </div>
@@ -108,7 +130,9 @@ const OrderArea = ({ orderId }) => {
                   <div className="col-lg-3 col-md-4">
                     <div className="invoice__payment-method mb-30">
                       <h5 className="mb-0">Payment Method</h5>
-                      <p className="tp-font-medium text-uppercase">{paymentMethod}</p>
+                      <p className="tp-font-medium text-uppercase">
+                        {paymentMethod}
+                      </p>
                     </div>
                   </div>
                   <div className="col-lg-3 col-md-4">
@@ -133,7 +157,6 @@ const OrderArea = ({ orderId }) => {
                   </div>
                 </div>
               </div>
-
             </div>
             <div className="invoice__print text-end mt-3">
               <div className="row">
@@ -146,7 +169,7 @@ const OrderArea = ({ orderId }) => {
                       >
                         <span className="mr-5">
                           <i className="fa-regular fa-print"></i>
-                        </span>{" "}
+                        </span>{' '}
                         Print
                       </button>
                     )}
@@ -161,12 +184,8 @@ const OrderArea = ({ orderId }) => {
       </>
     );
   }
-  
-  return (
-    <>
-      {content}
-    </>
-  );
+
+  return <>{content}</>;
 };
 
 export default OrderArea;
