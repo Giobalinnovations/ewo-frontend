@@ -21,7 +21,7 @@ export default function HomePage() {
       <Header />
       <HomeHeroSlider />
       <ElectronicCategory />
-      <FeatureArea />
+      {/* <FeatureArea /> */}
       <ProductArea />
       <BannerArea />
       <OfferProducts />

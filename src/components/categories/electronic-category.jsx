@@ -71,7 +71,7 @@ const ElectronicCategory = () => {
     ));
   }
   return (
-    <section className="tp-product-category pt-60 pb-15">
+    <section className="tp-product-category pt-60 pb-15 mb-40">
       <div className="container">
         <div className="row row-cols-xl-5 row-cols-lg-5 row-cols-md-4">
           {content}

@@ -22,20 +22,18 @@
 
     & a {
       display: inline-block;
-      width: 180px;
-      height: 180px;
-      background-color: var(--tp-grey-1);
-      background-image: radial-gradient(
-        95.56% 95.56% at 50% 50%,
-        #ffffff 0%,
-        #bddeff 100%
-      );
+      width: 138px;
+      height: 138px;
+      background-color: white;
       border-radius: 50%;
       text-align: center;
       display: flex;
       align-items: center;
       justify-content: center;
       margin: auto;
+      outline-color: #e0e0e0;
+      outline-width: 1px;
+      outline-style: solid;
 
       @media #{$lg, $md} {
         width: 150px;
@@ -44,7 +42,7 @@
 
       & img {
         @extend %tp-transition;
-
+        width: 80% !important;
         mix-blend-mode: darken;
       }
     }
@@ -52,15 +50,15 @@
   &-content {
     & p {
       @extend %tp-ff-roboto;
-      font-weight: 400;
+      font-weight: 700;
       font-size: 14px;
       color: var(--tp-text-2);
     }
   }
   &-title {
     @extend %tp-ff-roboto;
-    font-weight: 500;
-    font-size: 20px;
+    font-weight: 700;
+    font-size: 15px;
     color: var(--tp-common-black);
     margin-bottom: 0;
     & a {

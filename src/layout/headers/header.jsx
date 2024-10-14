@@ -38,7 +38,7 @@ const Header = () => {
       <header>
         <div className="tp-header-area p-relative z-index-11">
           {/* header top start  */}
-          <div className="tp-header-top black-bg p-relative z-index-1 d-none d-md-block">
+          {/* <div className="tp-header-top black-bg p-relative z-index-1 d-none d-md-block">
             <div className="container">
               <div className="row align-items-center">
                 <div className="col-md-6">
@@ -56,7 +56,7 @@ const Header = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* header main start */}
           <div className="tp-header-main tp-header-sticky">

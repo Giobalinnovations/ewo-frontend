@@ -27,7 +27,7 @@
                 &-dot{
                     &.#{$theme-prifix}-swiper-dot{
                         .swiper-pagination-bullet{
-                            background-color: rgba($color: $black, $alpha: .2);                    
+                            background-color: rgba($color: $black, $alpha: .2);
                             &.swiper-pagination-bullet-active{
                                 background-color: var(--tp-theme-primary);
                             }
@@ -58,7 +58,7 @@
 
         &:hover{
             & .#{$theme-prifix}-slider-arrow{
-            
+
                 & button{
                     left: 40px;
                     visibility: visible;
@@ -71,7 +71,7 @@
         }
 
         & .#{$theme-prifix}-slider-arrow{
-            
+
             & button{
                 position: absolute;
                 top: 50%;
@@ -104,13 +104,13 @@
 
             &.#{$theme-prifix}-swiper-dot{
                 .swiper-pagination-bullet{
-                    background-color: rgba($color: #fff, $alpha: .2);                    
+                    background-color: rgba($color: #fff, $alpha: .2);
                     &.swiper-pagination-bullet-active{
                         background-color: var(--tp-common-white);
                     }
                 }
             }
-            
+
         }
     }
     &-item{
@@ -264,7 +264,7 @@
                         }
                     }
                 }
-    
+
             }
 
         }
@@ -288,7 +288,7 @@
             }
             .swiper-pagination-bullet{
                 background-color: rgba($color: $black, $alpha: .14);
-                margin: 3px 0 !important;                
+                margin: 3px 0 !important;
                 &.swiper-pagination-bullet-active{
                     background-color: var(--tp-theme-secondary);
                 }
@@ -307,7 +307,7 @@
     &-title-2{
         font-weight: 400;
         font-size: 100px;
-        line-height: 1.06; 
+        line-height: 1.06;
         margin-bottom: 30px;
         @include animation-control(.3s);
 
@@ -395,7 +395,7 @@
                         @include animation-name();
                     }
                 }
-    
+
             }
 
         }
@@ -419,7 +419,7 @@
             }
             .swiper-pagination-bullet{
                 background-color: rgba($color: $white, $alpha: .3);
-                margin: 3px 0 !important;                
+                margin: 3px 0 !important;
                 &.swiper-pagination-bullet-active{
                     background-color: var(--tp-common-white);
                 }
@@ -429,7 +429,7 @@
     &-title-3{
         font-weight: 400;
         font-size: 100px;
-        line-height: 1.06; 
+        line-height: 1.06;
         margin-bottom: 22px;
         color: var(--tp-common-white);
         @include animation-control(.3s);
@@ -598,7 +598,7 @@
                         transition-delay: .9s;
                     }
                 }
-    
+
             }
 
         }
@@ -622,7 +622,7 @@
             }
             .swiper-pagination-bullet{
                 background-color: rgba($color: $white, $alpha: .3);
-                margin: 3px 0 !important;                
+                margin: 3px 0 !important;
                 &.swiper-pagination-bullet-active{
                     background-color: var(--tp-common-white);
                 }
@@ -632,7 +632,7 @@
     &-title-4{
         font-weight: 400;
         font-size: 100px;
-        line-height: .96;        
+        line-height: .96;
         letter-spacing: -0.04em;
         margin-bottom: 35px;
         color: var(--tp-common-white);
@@ -799,7 +799,7 @@
                 display: inline-block;
                 @include animation(tp-rotate-center 10s linear infinite);
                 border-radius: 50%;
-               
+
             }
 
             &:hover{
@@ -826,7 +826,7 @@
                 & .pause-icon{
                     display: block;
                 }
-                
+
                 background-color: transparent;
 
             }
@@ -869,7 +869,7 @@
             font-size: 20px;
             line-height: 1.10;
             color: #FFFFFF;
-           
+
             margin-bottom: 0;
         }
     }
@@ -900,7 +900,7 @@
         @media #{$xs, $sm}{
             font-size: 40px;
          }
-        
+
     }
     &-content-5{
         @media #{$x4l}{

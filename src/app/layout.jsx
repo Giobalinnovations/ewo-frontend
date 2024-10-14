@@ -1,5 +1,5 @@
 import './globals.scss';
-import { Jost, Roboto, Charm, Oregano } from 'next/font/google';
+import { Krub } from 'next/font/google';
 import Providers from '@/components/provider';
 
 export const metadata = {
@@ -7,38 +7,38 @@ export const metadata = {
   description: 'EWO',
 };
 
-const body = Jost({
-  weight: ['300', '400', '500', '600', '700', '800', '900'],
+const body = Krub({
+  weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
   variable: '--tp-ff-body',
 });
-const heading = Jost({
-  weight: ['300', '400', '500', '600', '700', '800', '900'],
+const heading = Krub({
+  weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
   variable: '--tp-ff-heading',
 });
-const p = Jost({
-  weight: ['300', '400', '500', '600', '700', '800', '900'],
+const p = Krub({
+  weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
   variable: '--tp-ff-p',
 });
-const jost = Jost({
-  weight: ['300', '400', '500', '600', '700', '800', '900'],
+const jost = Krub({
+  weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
   variable: '--tp-ff-jost',
 });
-const roboto = Roboto({
-  weight: ['300', '400', '500', '700', '900'],
+const roboto = Krub({
+  weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
   variable: '--tp-ff-roboto',
 });
-const oregano = Oregano({
-  weight: ['400'],
+const oregano = Krub({
+  weight: ['400', '600', '700'],
   subsets: ['latin'],
   variable: '--tp-ff-oregano',
 });
-const charm = Charm({
-  weight: ['400', '700'],
+const charm = Krub({
+  weight: ['400', '600', '700'],
   subsets: ['latin'],
   variable: '--tp-ff-charm',
 });

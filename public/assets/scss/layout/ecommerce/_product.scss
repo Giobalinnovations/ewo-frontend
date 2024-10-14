@@ -85,6 +85,7 @@
     padding: 10px 30px 20px;
   }
   &-category {
+    background-color: #f5f5f5;
     & > a {
       @extend %tp-ff-roboto;
       font-weight: 500;
@@ -97,10 +98,10 @@
   }
   &-title {
     @extend %tp-ff-roboto;
-    font-weight: 500;
-    font-size: 15px;
+    font-weight: 600;
+    font-size: 14px;
     line-height: 1.33;
-    margin-bottom: 7px;
+    margin-bottom: 3px;
 
     & a {
       &:hover {
@@ -131,16 +132,16 @@
   }
   &-price {
     @extend %tp-ff-roboto;
-    font-weight: 700;
-    font-size: 15px;
+    font-weight: 600;
+    font-size: 20px;
     letter-spacing: -0.02em;
     color: var(--tp-theme-primary);
 
     &.old-price {
       color: #55585b;
-      font-size: 12px;
+      font-size: 16px;
       text-decoration: line-through;
-      font-weight: 500;
+      font-weight: 400;
     }
   }
   &-tab {
