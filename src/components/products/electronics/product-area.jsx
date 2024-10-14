@@ -1,7 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { useGetProductTypeQuery } from '@/redux/features/productApi';
-import { ShapeLine, TabLine } from '@/svg';
 import ProductItem from './product-item';
 import ErrorMsg from '@/components/common/error-msg';
 import HomePrdLoader from '@/components/loader/home/home-prd-loader';
@@ -19,11 +18,11 @@ const ProductArea = () => {
     type: 'electronics',
     query: `${activeTab}=true`,
   });
-  // handleActiveTab
+
   const handleActiveTab = tab => {
     setActiveTab(tab);
   };
-  // refetch when active value change
+
   useEffect(() => {
     refetch();
   }, [activeTab, refetch]);
@@ -48,54 +47,30 @@ const ProductArea = () => {
       </div>
     ));
   }
+
   return (
-    <section className="tp-product-area pb-55">
+    <section className="tp-product-area">
       <div className="container">
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            borderBottom: '1px solid #e0e0e0',
-            paddingBottom: '10px',
-            marginBottom: '20px',
-          }}
-        >
-          <h2 style={{ fontSize: '18px', fontWeight: 'bold', margin: 0 }}>
-            Trending Products
-          </h2>
-          <div style={{ display: 'flex', gap: '20px' }}>
+        <div className="product-header">
+          <h2 className="product-title">Trending Products</h2>
+          <div className="product-tabs">
             {tabs.map((tab, i) => (
               <button
                 key={i}
                 onClick={() => handleActiveTab(tab)}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  fontSize: '14px',
-                  color: activeTab === tab ? '#000' : '#757575',
-                  fontWeight: activeTab === tab ? 'bold' : 'normal',
-                  position: 'relative',
-                  paddingBottom: '5px',
-                }}
+                className={`product-tab-button ${
+                  activeTab === tab ? 'active' : ''
+                }`}
               >
-                {tab.charAt(0).toUpperCase() + tab.slice(1)}
-                {activeTab === tab && (
-                  <span
-                    style={{
-                      position: 'absolute',
-                      bottom: '-1px',
-                      left: 0,
-                      width: '100%',
-                      height: '2px',
-                      background: '#000',
-                    }}
-                  />
-                )}
+                {tab === 'topSellers'
+                  ? 'Top Sellers'
+                  : tab.charAt(0).toUpperCase() + tab.slice(1)}
               </button>
             ))}
           </div>
+          <a href="#" className="view-all-link">
+            View All →
+          </a>
         </div>
         <div className="row">{content}</div>
       </div>
