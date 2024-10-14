@@ -75,57 +75,32 @@ const NewArrivals = () => {
     );
   }
   return (
-    <>
-      <section className="tp-product-arrival-area pb-55">
-        <div className="container">
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              borderBottom: '1px solid #e0e0e0',
-              paddingBottom: '10px',
-              marginBottom: '20px',
-            }}
-          >
-            <h2 style={{ fontSize: '18px', fontWeight: 'bold', margin: 0 }}>
-              New Arrivals
-            </h2>
-            <div className="tp-product-arrival-arrow tp-swiper-arrow text-end">
-              <button
-                type="button"
-                className="tp-arrival-slider-button-prev"
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  padding: '5px',
-                }}
-              >
-                <PrevArr />
-              </button>{' '}
-              <button
-                type="button"
-                className="tp-arrival-slider-button-next"
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  padding: '5px',
-                }}
-              >
-                <NextArr />
-              </button>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-xl-12">
-              <div className="tp-product-arrival-slider fix">{content}</div>
-            </div>
+    <section className="tp-product-arrival-area pb-55">
+      <div className="container">
+        <div className="product-header">
+          <h2 className="product-title">New Arrivals</h2>
+          <div className="tp-product-arrival-arrow tp-swiper-arrow">
+            <button
+              type="button"
+              className="product-arrow-btn tp-arrival-slider-button-prev"
+            >
+              <PrevArr />
+            </button>
+            <button
+              type="button"
+              className="product-arrow-btn tp-arrival-slider-button-next"
+            >
+              <NextArr />
+            </button>
           </div>
         </div>
-      </section>
-    </>
+        <div className="row">
+          <div className="col-xl-12">
+            <div className="tp-product-arrival-slider fix">{content}</div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

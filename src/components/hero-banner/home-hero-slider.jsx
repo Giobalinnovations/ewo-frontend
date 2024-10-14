@@ -1,54 +1,54 @@
 'use client';
 // external
-import React, { useState } from "react";
-import { Navigation, Pagination, EffectFade } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import Image from "next/image";
-import Link from "next/link";
+import React, { useState } from 'react';
+import { Navigation, Pagination, EffectFade } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import Image from 'next/image';
+import Link from 'next/link';
 // internal
-import slider_img_1 from "@assets/img/slider/slider-img-1.png";
-import slider_img_2 from "@assets/img/slider/slider-img-2.png";
-import slider_img_3 from "@assets/img/slider/slider-img-3.png";
-import shape_1 from "@assets/img/slider/shape/slider-shape-1.png";
-import shape_2 from "@assets/img/slider/shape/slider-shape-2.png";
-import shape_3 from "@assets/img/slider/shape/slider-shape-3.png";
-import shape_4 from "@assets/img/slider/shape/slider-shape-4.png";
-import { ArrowRightLong, SliderNextBtn, SliderPrevBtn, TextShape } from "@/svg";
+import slider_img_1 from '@assets/img/slider/slider-img-1.png';
+import slider_img_2 from '@assets/img/slider/slider-img-2.png';
+import slider_img_3 from '@assets/img/slider/slider-img-3.png';
+import shape_1 from '@assets/img/slider/shape/slider-shape-1.png';
+import shape_2 from '@assets/img/slider/shape/slider-shape-2.png';
+import shape_3 from '@assets/img/slider/shape/slider-shape-3.png';
+import shape_4 from '@assets/img/slider/shape/slider-shape-4.png';
+import { ArrowRightLong, SliderNextBtn, SliderPrevBtn, TextShape } from '@/svg';
 
 // slider data
 const sliderData = [
   {
     id: 1,
-    pre_title: { text: "Starting at", price: 274 },
-    title: "The best tablet Collection 2023",
+    pre_title: { text: 'Starting at', price: 274 },
+    title: 'The best tablet Collection 2023',
     subtitle: {
-      text_1: "Exclusive offer ",
+      text_1: 'Exclusive offer ',
       percent: 35,
-      text_2: "off this week",
+      text_2: 'off this week',
     },
     img: slider_img_1,
     green_bg: true,
   },
   {
     id: 2,
-    pre_title: { text: "Starting at", price: 999 },
-    title: "The best note book collection 2023",
+    pre_title: { text: 'Starting at', price: 999 },
+    title: 'The best note book collection 2023',
     subtitle: {
-      text_1: "Exclusive offer ",
+      text_1: 'Exclusive offer ',
       percent: 10,
-      text_2: "off this week",
+      text_2: 'off this week',
     },
     img: slider_img_2,
     green_bg: true,
   },
   {
     id: 3,
-    pre_title: { text: "Starting at", price: 999 },
-    title: "The best note book collection 2023",
+    pre_title: { text: 'Starting at', price: 999 },
+    title: 'The best note book collection 2023',
     subtitle: {
-      text_1: "Exclusive offer ",
+      text_1: 'Exclusive offer ',
       percent: 10,
-      text_2: "off this week",
+      text_2: 'off this week',
     },
     img: slider_img_3,
     is_light: true,
@@ -57,52 +57,56 @@ const sliderData = [
 
 function Shape({ img, num }) {
   return (
-    <Image className={`tp-slider-shape-${num}`} src={img} alt="slider-shape" priority />
+    <Image
+      className={`tp-slider-shape-${num}`}
+      src={img}
+      alt="slider-shape"
+      priority
+    />
   );
 }
 
 const HomeHeroSlider = () => {
-  const [active,setActive] = useState(false);
+  const [active, setActive] = useState(false);
 
   // handleActiveIndex
-  const handleActiveIndex = (index) => {
-    if(index === 2){
-      setActive(true)
+  const handleActiveIndex = index => {
+    if (index === 2) {
+      setActive(true);
+    } else {
+      setActive(false);
     }
-    else {
-      setActive(false)
-    }
-  }
+  };
   return (
     <>
-      <section className="tp-slider-area p-relative z-index-1">
+      <section className="tp-slider-area p-relative z-index-1 pb-55">
         <Swiper
           slidesPerView={1}
           spaceBetween={30}
           loop={false}
           effect="fade"
           navigation={{
-            nextEl: ".tp-slider-button-next",
-            prevEl: ".tp-slider-button-prev",
+            nextEl: '.tp-slider-button-next',
+            prevEl: '.tp-slider-button-prev',
           }}
-          onSlideChange={(swiper) => handleActiveIndex(swiper.activeIndex)}
-          pagination={{ el: ".tp-slider-dot", clickable: true }}
+          onSlideChange={swiper => handleActiveIndex(swiper.activeIndex)}
+          pagination={{ el: '.tp-slider-dot', clickable: true }}
           modules={[Navigation, Pagination, EffectFade]}
           className={`tp-slider-active tp-slider-variation swiper-container ${
-            active ? "is-light" : ""
+            active ? 'is-light' : ''
           }`}
         >
-          {sliderData.map((item) => (
+          {sliderData.map(item => (
             <SwiperSlide
               key={item.id}
               className={`tp-slider-item tp-slider-height d-flex align-items-center ${
                 item?.green_bg
-                  ? "green-dark-bg"
+                  ? 'green-dark-bg'
                   : item?.is_light
-                  ? "is-light"
-                  : ""
+                  ? 'is-light'
+                  : ''
               }`}
-              style={{ backgroundColor: item.is_light && "#E3EDF6" }}
+              style={{ backgroundColor: item.is_light && '#E3EDF6' }}
             >
               <div className="tp-slider-shape">
                 <Shape img={shape_1} num="1" />
@@ -123,14 +127,16 @@ const HomeHeroSlider = () => {
                         <span>
                           -{item.subtitle.percent}%
                           <TextShape />
-                        </span>{" "}
+                        </span>{' '}
                         {item.subtitle.text_2}
                       </p>
 
                       <div className="tp-slider-btn">
-                        <Link href="/shop" className="tp-btn tp-btn-2 tp-btn-white">
-                          Shop Now
-                          {" "} <ArrowRightLong />
+                        <Link
+                          href="/shop"
+                          className="tp-btn tp-btn-2 tp-btn-white"
+                        >
+                          Shop Now <ArrowRightLong />
                         </Link>
                       </div>
                     </div>

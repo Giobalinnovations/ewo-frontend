@@ -2,6 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 // internal
 import ErrorMsg from '../common/error-msg';
 import { useGetProductTypeCategoryQuery } from '@/redux/features/categoryApi';
@@ -25,6 +26,7 @@ const ElectronicCategory = () => {
         .join('-')}`
     );
   };
+
   // decide what to render
   let content = null;
 
@@ -39,43 +41,50 @@ const ElectronicCategory = () => {
   }
   if (!isLoading && !isError && categories?.result?.length > 0) {
     const category_items = categories.result;
-    content = category_items.map(item => (
-      <div className="col" key={item._id}>
-        <div className="tp-product-category-item text-center mb-40">
-          <div className="tp-product-category-thumb fix">
-            <a
-              className="cursor-pointer"
-              onClick={() => handleCategoryRoute(item.parent)}
-            >
+    content = (
+      <div className="category-grid">
+        {category_items.map(item => (
+          <div
+            className="category-item"
+            key={item._id}
+            onClick={() => handleCategoryRoute(item.parent)}
+          >
+            <div className="category-image">
               <Image
                 src={item.img}
-                alt="product-category"
-                width={76}
-                height={98}
+                alt={item.parent}
+                width={200}
+                height={200}
+                layout="responsive"
               />
-            </a>
+            </div>
+            <div className="category-info">
+              <h3 className="category-title">{item.parent}</h3>
+              <span className="category-count">
+                {item.products.length} items
+              </span>
+            </div>
           </div>
-          <div className="tp-product-category-content">
-            <h3 className="tp-product-category-title">
-              <a
-                className="cursor-pointer"
-                onClick={() => handleCategoryRoute(item.parent)}
-              >
-                {item.parent}
-              </a>
-            </h3>
-            <p>{item.products.length} Product</p>
-          </div>
-        </div>
+        ))}
       </div>
-    ));
+    );
   }
+
   return (
-    <section className="tp-product-category pt-60 pb-15 mb-40">
+    <section className="category-section">
       <div className="container">
-        <div className="row row-cols-xl-5 row-cols-lg-5 row-cols-md-4">
-          {content}
+        <div className="category-header">
+          <div className="category-header-left">
+            <h2 className="category-main-title">Our Good Categories</h2>
+            <p className="category-subtitle">
+              Don't miss out on this week's deals
+            </p>
+          </div>
+          <Link href="/shop" className="view-all-link">
+            View All →
+          </Link>
         </div>
+        {content}
       </div>
     </section>
   );
