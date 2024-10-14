@@ -78,6 +78,7 @@ const ProductSmArea = () => {
               ))}
             </div>
           </div>
+          {/*  */}
         </div>
       </div>
     );
