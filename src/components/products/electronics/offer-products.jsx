@@ -78,7 +78,7 @@ const OfferProducts = () => {
   }
 
   return (
-    <section className="tp-product-offer pb-55">
+    <section className="tp-product-offer section-pb">
       <div className="container">
         <div className="product-header">
           <div className="product-header-left">

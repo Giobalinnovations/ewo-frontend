@@ -37,7 +37,7 @@ function BannerItem({ sm = false, bg, title }) {
 
 const BannerArea = () => {
   return (
-    <section className="tp-banner-area pb-55">
+    <section className="tp-banner-area section-pb">
       <div className="container">
         <div className="row">
           <div className="col-xl-8 col-lg-7">

@@ -28,9 +28,9 @@ export default function HomePage() {
       <ProductGadgetArea />
       <ProductBanner />
       <NewArrivals />
-      <ProductSmArea />
+      <ProductSmArea otherLayout={true} />
       <BlogArea />
-      <InstagramArea />
+      {/* <InstagramArea /> */}
       <CtaArea />
       <Footer />
     </Wrapper>
