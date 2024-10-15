@@ -45,7 +45,7 @@ const slider_setting = {
 const BlogArea = () => {
   const blogs = blogData.filter(b => b.blog === 'electronics');
   return (
-    <section className="tp-blog-area pt-50 pb-75">
+    <section className="tp-blog-area section-pb">
       <div className="container">
         <div className="row align-items-end">
           <div className="col-xl-4 col-md-6">

@@ -55,7 +55,7 @@ const slider_setting = {
 const ProductBanner = () => {
   return (
     <>
-      <div className="tp-product-banner-area pb-55">
+      <div className="tp-product-banner-area section-pb">
         <div className="container">
           <div className="tp-product-banner-slider fix">
             <Swiper
