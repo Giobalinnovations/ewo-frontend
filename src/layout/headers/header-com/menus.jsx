@@ -2,7 +2,6 @@
 import React from 'react';
 import menu_data from '@/data/menu-data';
 import Link from 'next/link';
-import Image from 'next/image';
 
 const Menus = () => {
   return (

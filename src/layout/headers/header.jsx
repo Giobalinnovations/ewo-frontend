@@ -6,8 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 // internal
 import Menus from './header-com/menus';
 import useSticky from '@/hooks/use-sticky';
-// import logo from '@assets/img/logo/logo.png';
-import logo from '@assets/img/logo/logo.png';
+// import logo from '@assets/img/logo/logo.webp';
+import logo from '@assets/img/logo/logo.webp';
 import useCartInfo from '@/hooks/use-cart-info';
 import OffCanvas from '@/components/common/off-canvas';
 import { openCartMini } from '@/redux/features/cartSlice';
