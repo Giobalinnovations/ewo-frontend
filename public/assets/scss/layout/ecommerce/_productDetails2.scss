@@ -1,0 +1,147 @@
+.tp-product-details-inventory {
+  margin-bottom: 12px;
+}
+
+.tp-product-details-info-flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+
+  > div {
+    position: relative;
+    padding-right: 15px;
+
+    &:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 15px;
+      width: 1px;
+      background-color: #e0e0e0;
+    }
+  }
+
+  .tp-product-details-rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    .tp-product-details-reviews {
+      font-size: 0.8125rem;
+      color: #666;
+      margin-left: 5px;
+    }
+  }
+
+  .tp-product-details-sku {
+    font-size: 0.8125rem;
+    color: #666;
+  }
+
+  .tp-product-details-stock {
+    font-size: 0.8125rem;
+    color: #00a900;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+
+    // &::before {
+    //   content: '';
+    //   display: inline-block;
+    //   width: 16px;
+    //   height: 16px;
+    //   // background-image: url('path/to/your/in-stock-icon.svg');
+    //   background-size: contain;
+    //   background-repeat: no-repeat;
+    //   margin-right: 5px;
+    // }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 480px) {
+  .tp-product-details-info-flex {
+    flex-direction: column;
+    align-items: flex-start;
+
+    > div {
+      padding-right: 0;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+// title
+
+.tp-product-details-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  margin: 10px 0;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+
+  &-text {
+    display: inline-block;
+    position: relative;
+
+    // &::after {
+    //   content: '';
+    //   position: absolute;
+    //   bottom: -2px;
+    //   left: 0;
+    //   width: 0;
+    //   height: 2px;
+    //   background-color: var(--tp-the-primary);
+    //   transition: width 0.3s ease;
+    // }
+  }
+
+  // &:hover {
+  //   color: $pr;
+
+  //   .tp-product-details-title-text::after {
+  //     width: 100%;
+  //   }
+  // }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .tp-product-details-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tp-product-details-title {
+    font-size: 20px;
+  }
+}
+
+// Animation for title appearance
+@keyframes titleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tp-product-details-title {
+  animation: titleFadeIn 0.5s ease-out forwards;
+}
+
+// product description
+.tp-product-details-wrapper-description span {
+  max-width: none !important;
+}

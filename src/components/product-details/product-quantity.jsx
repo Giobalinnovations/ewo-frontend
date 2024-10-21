@@ -6,7 +6,7 @@ import { Minus, Plus } from '@/svg';
 import { decrement, increment } from '@/redux/features/cartSlice';
 
 const ProductQuantity = () => {
-  const { orderQuantity } = useSelector((state) => state.cart);
+  const { orderQuantity } = useSelector(state => state.cart);
   const dispatch = useDispatch();
   // handleIncrease
   const handleIncrease = () => {
@@ -17,17 +17,22 @@ const ProductQuantity = () => {
     dispatch(decrement());
   };
   return (
-    <div className="tp-product-details-quantity">
-    <div className="tp-product-quantity mb-15 mr-15">
-      <span className="tp-cart-minus" onClick={handleDecrease}>
-        <Minus />
-      </span>
-      <input className="tp-cart-input" type="text" readOnly value={orderQuantity} />
-      <span className="tp-cart-plus" onClick={handleIncrease}>
-        <Plus />
-      </span>
+    <div className="tp-product-details-quantity ">
+      <div className="tp-product-quantity rounded-4">
+        <span className="tp-cart-minus" onClick={handleDecrease}>
+          <Minus />
+        </span>
+        <input
+          className="tp-cart-input rounded-3 w-100"
+          type="text"
+          readOnly
+          value={orderQuantity}
+        />
+        <span className="tp-cart-plus" onClick={handleIncrease}>
+          <Plus />
+        </span>
+      </div>
     </div>
-  </div>
   );
 };
 
