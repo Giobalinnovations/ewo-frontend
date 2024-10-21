@@ -70,13 +70,14 @@ const DetailsWrapper = ({
       <div className="tp-product-details-category">
         <span>{category.name}</span>
       </div>
-      <h1 className="tp-product-details-title">
-        <span className="tp-product-details-title-text">{title}</span>
-      </h1>
+      <h3 className="tp-product-details-title">{title}</h3>
 
-      {/* Updated inventory details */}
-      <div className="tp-product-details-inventory">
-        <div className="tp-product-details-info-flex">
+      {/* inventory details */}
+      <div className="tp-product-details-inventory d-flex align-items-center mb-10">
+        <div className="tp-product-details-stock mb-10">
+          <span>{status}</span>
+        </div>
+        <div className="tp-product-details-rating-wrapper d-flex align-items-center mb-10">
           <div className="tp-product-details-rating">
             <Rating
               allowFraction
@@ -84,22 +85,38 @@ const DetailsWrapper = ({
               initialValue={ratingVal}
               readonly={true}
             />
-            <span className="tp-product-details-reviews">
-              {reviews && reviews.length > 0 ? reviews.length : 0} review
+          </div>
+          <div className="tp-product-details-reviews">
+            <span>
+              ({reviews && reviews.length > 0 ? reviews.length : 0} Review)
             </span>
-          </div>
-          <div className="tp-product-details-sku">
-            <span>SKU: {sku}</span>
-          </div>
-          <div className="tp-product-details-stock">
-            <span>{status}</span>
           </div>
         </div>
       </div>
-      <div></div>
+      <div>
+        {/* show more testing */}
+        <ReactShowMoreText
+          /* Default options */
+          lines={2}
+          more="Show more"
+          less="Show less"
+          className="tp-product-details-wrapper-description"
+          anchorClass="show-more-less-clickable"
+          expanded={false}
+          width={280}
+          truncatedEndingComponent={'... '}
+        >
+          <div
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(description),
+            }}
+          />
+        </ReactShowMoreText>
+        {/* show more  */}
+      </div>
 
       {/* price */}
-      <div className="tp-product-details-price-wrapper">
+      <div className="tp-product-details-price-wrapper mb-20">
         {discount > 0 ? (
           <>
             <span className="tp-product-details-price old-price">${price}</span>
@@ -118,26 +135,7 @@ const DetailsWrapper = ({
           </span>
         )}
       </div>
-      {/* show more testing */}
-      <ReactShowMoreText
-        /* Default options */
-        lines={2}
-        more="Show more"
-        less="Show less"
-        className="tp-product-details-wrapper-description"
-        anchorClass="show-more-less-clickable"
-        expanded={false}
-        width={280}
-        truncatedEndingComponent={'... '}
-      >
-        <div
-          dangerouslySetInnerHTML={{
-            __html: DOMPurify.sanitize(description),
-          }}
-        />
-      </ReactShowMoreText>
 
-      {/* show more  */}
       {/* variations */}
       {imageURLs.some(item => item?.color && item?.color?.name) && (
         <div className="tp-product-details-variation">
@@ -177,11 +175,12 @@ const DetailsWrapper = ({
 
       {/* actions */}
       <div className="tp-product-details-action-wrapper">
-        <div className="tp-product-details-action-item-wrapper d-flex  flex-column flex-sm-row gap-3 flex-wrap">
+        <h3 className="tp-product-details-action-title">Quantity</h3>
+        <div className="tp-product-details-action-item-wrapper d-sm-flex align-items-center">
           {/* product quantity */}
           <ProductQuantity />
           {/* product quantity */}
-          <div className="tp-product-details-add-to-cart">
+          <div className="tp-product-details-add-to-cart mb-15 w-100">
             <button
               onClick={() => handleAddProduct(productItem)}
               disabled={status === 'out-of-stock'}
@@ -190,12 +189,12 @@ const DetailsWrapper = ({
               Add To Cart
             </button>
           </div>
-          <Link href="/cart" onClick={() => dispatch(handleModalClose())}>
-            <button className="tp-product-details-buy-now-btn w-100">
-              Buy Now
-            </button>
-          </Link>
         </div>
+        <Link href="/cart" onClick={() => dispatch(handleModalClose())}>
+          <button className="tp-product-details-buy-now-btn w-100">
+            Buy Now
+          </button>
+        </Link>
       </div>
       {/* product-details-action-sm start */}
       <div className="tp-product-details-action-sm">
