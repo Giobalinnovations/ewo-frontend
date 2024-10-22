@@ -15,13 +15,13 @@ export default function TawkToChat() {
 
   return (
     <div>
-      <TawkMessengerReactUmd
-        propertyId="65ba264b8d261e1b5f59e569"
-        widgetId="1hlfib62c"
+      {/* <TawkMessengerReactUmd
+        propertyId={process.env.NEXT_PUBLIC_TAWK_PROPERTY_ID}
+        widgetId={process.env.NEXT_PUBLIC_TAWK_WIDGET_ID}
         ref={tawkMessengerRef}
         onLoad={onLoad}
         onMinimize={handleMinimize}
-      />
+      /> */}
     </div>
   );
 }
