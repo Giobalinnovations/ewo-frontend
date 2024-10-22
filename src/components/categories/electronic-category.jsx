@@ -49,13 +49,15 @@ const ElectronicCategory = () => {
             key={item._id}
             onClick={() => handleCategoryRoute(item.parent)}
           >
-            <div className="category-image">
+            <div className="category-image w-100  position-relative overflow-hidden">
               <Image
                 src={item.img}
                 alt={item.parent}
-                width={200}
-                height={200}
-                layout="responsive"
+                fill
+                className="w-100 h-100 object-fit-contain"
+                // width={200}
+                // height={200}
+                // layout="responsive"
               />
             </div>
             <div className="category-info">
