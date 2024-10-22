@@ -1,6 +1,7 @@
 import './globals.scss';
 import { Krub, Jost, Roboto, Charm, Oregano } from 'next/font/google';
 import Providers from '@/components/provider';
+import TawkToChat from '@/components/TawkToChat';
 
 export const metadata = {
   title: 'EWO',
@@ -87,6 +88,7 @@ export default function RootLayout({ children }) {
         className={`${body.variable} ${heading.variable} ${p.variable} ${jost.variable} ${roboto.variable} ${oregano.variable} ${charm.variable}`}
       >
         <Providers>{children}</Providers>
+        <TawkToChat />
       </body>
     </html>
   );
