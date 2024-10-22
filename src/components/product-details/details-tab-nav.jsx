@@ -76,7 +76,7 @@ const DetailsTabNav = ({ product }) => {
             aria-labelledby="nav-desc-tab"
             tabIndex="-1"
           >
-            <div className="tp-product-details-desc-wrapper pt-60">
+            <div className="tp-product-details-desc-wrapper pt-10">
               <div className="row">
                 <div className="col-xl-12">
                   <div className="tp-product-details-desc-item">
