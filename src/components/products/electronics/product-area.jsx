@@ -15,10 +15,11 @@ import ErrorMsg from '@/components/common/error-msg';
 import HomePrdLoader from '@/components/loader/home/home-prd-loader';
 import ProductItem2 from './product-item-2';
 
-const tabs = ['new', 'featured', 'topSellers'];
-
-const ProductArea = () => {
-  const [activeTab, setActiveTab] = useState('new');
+const ProductArea = ({
+  tabs = ['new', 'featured', 'topSellers'],
+  activeTabText = 'new',
+}) => {
+  const [activeTab, setActiveTab] = useState(activeTabText);
   const {
     data: products,
     isError,

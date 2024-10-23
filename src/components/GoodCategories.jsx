@@ -47,7 +47,7 @@ export default function GoodCategories() {
     <section className="good-categories">
       <div className="container">
         <SectionHeader
-          title="Our Good Categories"
+          title="Top Categories"
           subtitle="Don't miss out on this week's deals"
           viewAllLink="/categories"
           className="good-categories__header"
