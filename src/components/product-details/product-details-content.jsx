@@ -52,7 +52,7 @@ const ProductDetailsContent = ({ productItem }) => {
       </div>
 
       {/* product details description */}
-      <div className="tp-product-details-bottom pb-140">
+      <div className="tp-product-details-bottom pb-10">
         <div className="container">
           <div className="row">
             <div className="col-xl-12">
