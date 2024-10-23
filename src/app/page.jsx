@@ -101,8 +101,8 @@ export default function HomePage() {
       <Header />
       <HomeHeroSlider />
       <ElectronicCategory />
-      {/* <FeaturedProducts products={sampleProducts} /> */}
-      <ProductArea />
+
+      <ProductArea activeTabText="new" />
       <BannerArea />
       <OfferProducts />
       <ProductGadgetArea />
@@ -111,7 +111,7 @@ export default function HomePage() {
       <ProductSmArea otherLayout={true} />
       <BlogArea />
       <CtaArea />
-      <FeaturedProducts products={sampleProducts} />
+
       <Footer />
     </Wrapper>
   );

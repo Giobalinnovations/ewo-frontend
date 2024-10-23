@@ -96,7 +96,7 @@ const Header = () => {
                         <span>
                           <CategoryMenu />
                         </span>
-                        All Departments
+                        All Categories
                       </button>
                       <nav className="tp-category-menu-content">
                         <HeaderCategory

@@ -86,7 +86,7 @@ const ElectronicCategory = () => {
     <section className="good-categories">
       <div className="container">
         <SectionHeader
-          title="Our Good Categories"
+          title="Top Categories"
           subtitle="Don't miss out on this week's deals"
           viewAllLink="/shop"
           className="good-categories__header"
