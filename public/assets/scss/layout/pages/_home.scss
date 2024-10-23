@@ -562,3 +562,530 @@
     font-size: 12px;
   }
 }
+
+// good categories
+.good-categories {
+  padding: 40px 0;
+
+  &__header {
+    margin-bottom: 30px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    @media (min-width: 576px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width: 992px) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &__item-image {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    padding: 20px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &__item:hover &__item-image img {
+    transform: scale(1.05);
+  }
+
+  &__item-content {
+    padding: 15px;
+    text-align: center;
+    border-top: 1px solid #e0e0e0;
+  }
+
+  &__item-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+    color: #333;
+  }
+
+  &__item-count {
+    font-size: 12px;
+    color: #757575;
+    margin: 0;
+  }
+}
+
+// Add these styles at the end of the file or replace the existing .section-header styles
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 15px;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    color: #757575;
+    margin: 5px 0 0 0;
+  }
+
+  &__view-all {
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #ff3c3c;
+    }
+  }
+}
+
+// FEATURED PRODUCTS
+
+.featured {
+  padding: 40px 0;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 15px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 0 15px 0;
+
+    @media (max-width: 768px) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 15px;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+
+  &__tab {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #757575;
+    padding: 5px 0;
+    position: relative;
+
+    &--active {
+      color: #ff3c3c;
+      font-weight: bold;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -16px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #ff3c3c;
+      }
+    }
+
+    @media (max-width: 576px) {
+      font-size: 12px;
+    }
+  }
+
+  &__view-all {
+    font-size: 14px;
+    color: #757575;
+    text-decoration: none;
+
+    @media (max-width: 768px) {
+      align-self: flex-end;
+    }
+  }
+
+  &__slider {
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #ff3c3c;
+      &::after {
+        font-size: 24px;
+      }
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: #ff3c3c;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    height: 100%; // Ensure the card takes full height of its container
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &__discount,
+  &__super-price {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 4px;
+    z-index: 2;
+  }
+
+  &__discount {
+    background-color: #ff3c3c;
+  }
+
+  &__super-price {
+    background-color: #ffa500;
+  }
+
+  &__wishlist {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #757575;
+    transition: color 0.3s ease;
+    z-index: 3; // Add this line to ensure it's above other elements
+    width: 30px; // Add a specific width
+    height: 30px; // Add a specific height
+    display: flex; // Add this to center the icon
+    align-items: center; // Add this to center the icon
+    justify-content: center; // Add this to center the icon
+
+    &:hover {
+      color: #ff3c3c;
+    }
+
+    svg {
+      width: 20px; // Adjust the size of the icon if needed
+      height: 20px; // Adjust the size of the icon if needed
+    }
+  }
+
+  &__image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; // This creates a 1:1 aspect ratio
+    overflow: hidden;
+  }
+
+  &__image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  &__image {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 15px;
+    justify-content: space-between; // This will help distribute space evenly
+  }
+
+  &__product-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    height: 2.4em; // Adjust this value to fit exactly 2 lines
+    line-height: 1.2; // Adjust this to match your design
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+
+    a {
+      color: #333;
+      text-decoration: none;
+
+      &:hover {
+        color: #ff3c3c;
+      }
+    }
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px; // Reduce bottom margin
+  }
+
+  &__review-count {
+    font-size: 12px;
+    color: #757575;
+    margin-left: 5px;
+  }
+
+  &__price-wrapper {
+    margin-top: 5px; // Add some top margin
+    margin-bottom: 5px; // Reduce bottom margin
+    display: flex;
+    align-items: center;
+  }
+
+  &__old-price {
+    font-size: 14px;
+    color: #757575;
+    text-decoration: line-through;
+    margin-right: 10px;
+  }
+
+  &__price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff3c3c;
+  }
+
+  &__stock {
+    margin-bottom: 5px; // Reduce bottom margin
+    font-size: 14px;
+
+    &--in {
+      color: #28a745;
+    }
+
+    &--out {
+      color: #dc3545;
+    }
+  }
+
+  &__add-to-cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    background-color: #ff3c3c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken(#ff3c3c, 10%);
+    }
+
+    svg {
+      margin-right: 5px;
+    }
+  }
+
+  &__quick-view {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: bottom 0.3s ease;
+
+    svg {
+      margin-right: 5px;
+    }
+  }
+
+  &__card:hover {
+    .featured__image {
+      transform: scale(1.05);
+    }
+
+    .featured__quick-view {
+      bottom: 10px;
+    }
+  }
+}
+
+// Add these styles at the end of the file, after the .featured styles
+
+.product-area {
+  padding: 40px 0;
+
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 15px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 0 15px 0;
+
+    @media (max-width: 768px) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 15px;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+
+  &__tab {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #757575;
+    padding: 5px 0;
+    position: relative;
+
+    &--active {
+      color: #ff3c3c;
+      font-weight: bold;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -16px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #ff3c3c;
+      }
+    }
+
+    @media (max-width: 576px) {
+      font-size: 12px;
+    }
+  }
+
+  &__view-all {
+    font-size: 14px;
+    color: #757575;
+    text-decoration: none;
+
+    @media (max-width: 768px) {
+      align-self: flex-end;
+    }
+  }
+
+  &__slider {
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #ff3c3c;
+      &::after {
+        font-size: 24px;
+      }
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: #ff3c3c;
+    }
+  }
+}

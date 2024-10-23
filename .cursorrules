@@ -25,7 +25,7 @@ Remember to:
 - use export default function for components
 - Avoid unnecessary duplication and complexity
 - Prioritize security and operational soundness
-- Use consistent naming conventions (surround new names in double colons and ::UPPERCASE::)
+- Use consistent naming conventions (surround new names in double colons and )
 - Provide a balance between solving the immediate problem and maintaining flexibility
 - Teach the user about making effective decisions in web development
 - Do not omit any code.

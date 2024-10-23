@@ -1,19 +1,9 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import { Cart, QuickView, Wishlist } from '@/svg';
-import { Rating } from 'react-simple-star-rating';
 import { useGetProductTypeQuery } from '@/redux/features/productApi';
 import ProductItem from './product-item';
 import ErrorMsg from '@/components/common/error-msg';
 import HomePrdLoader from '@/components/loader/home/home-prd-loader';
-import ProductItem2 from './product-item-2';
 
 const tabs = ['new', 'featured', 'topSellers'];
 
@@ -51,41 +41,25 @@ const ProductArea = () => {
   }
   if (!isLoading && !isError && products?.data?.length > 0) {
     const product_items = products.data;
-    content = (
-      <Swiper
-        modules={[Navigation, Pagination]}
-        spaceBetween={20}
-        slidesPerView={1}
-        navigation
-        pagination={{ clickable: true }}
-        breakpoints={{
-          640: { slidesPerView: 2 },
-          768: { slidesPerView: 3 },
-          1024: { slidesPerView: 5 },
-        }}
-        className="featured__slider"
-      >
-        {product_items.map((product, i) => (
-          <SwiperSlide key={i}>
-            <ProductItem2 product={product} offer_design={true} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    );
+    content = product_items.map((prd, i) => (
+      <div key={i} className="col-xl-3 col-lg-3 col-sm-6">
+        <ProductItem product={prd} />
+      </div>
+    ));
   }
 
   return (
-    <section className="featured tp-product-area">
-      <div className="container featured__container">
-        <div className="featured__header product-header">
-          <h2 className="featured__title product-title">Trending Products</h2>
-          <div className="featured__tabs product-tabs">
+    <section className="tp-product-area">
+      <div className="container">
+        <div className="product-header">
+          <h2 className="product-title">Trending Products</h2>
+          <div className="product-tabs">
             {tabs.map((tab, i) => (
               <button
                 key={i}
                 onClick={() => handleActiveTab(tab)}
-                className={`featured__tab product-tab-button ${
-                  activeTab === tab ? 'featured__tab--active active' : ''
+                className={`product-tab-button ${
+                  activeTab === tab ? 'active' : ''
                 }`}
               >
                 {tab === 'topSellers'
@@ -94,11 +68,11 @@ const ProductArea = () => {
               </button>
             ))}
           </div>
-          <Link href="/products" className="featured__view-all view-all-link">
+          <a href="#" className="view-all-link">
             View All →
-          </Link>
+          </a>
         </div>
-        {content}
+        <div className="row">{content}</div>
       </div>
     </section>
   );
