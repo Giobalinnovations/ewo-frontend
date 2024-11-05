@@ -12,6 +12,7 @@ import ShopListItem from './shop-list-item';
 import ShopTopLeft from './shop-top-left';
 import ShopTopRight from './shop-top-right';
 import ResetButton from './shop-filter/reset-button';
+import ProductItem2 from '../products/electronics/product-item-2';
 
 const ShopContent = ({
   all_products,
@@ -44,7 +45,8 @@ const ShopContent = ({
           <div className="row">
             {!shop_right && !hidden_sidebar && (
               <div className="col-xl-3 col-lg-4">
-                <div className="tp-shop-sidebar mr-10">
+                <div className="tp-shop-sidebar mr-30">
+                  {' '}
                   {/* filter */}
                   <PriceFilter
                     priceFilterValues={priceFilterValues}
@@ -59,7 +61,7 @@ const ShopContent = ({
                   {/* product rating */}
                   <TopRatedProducts />
                   {/* brand */}
-                  <ProductBrand setCurrPage={setCurrPage} />
+                  {/* <ProductBrand setCurrPage={setCurrPage} /> */}
                   {/* reset filter */}
                   <ResetButton
                     setPriceValues={setPriceValue}
@@ -106,15 +108,16 @@ const ShopContent = ({
                         aria-labelledby="grid-tab"
                         tabIndex="0"
                       >
-                        <div className="row">
+                        <div className="row row-gap-4">
                           {filteredRows
                             .slice(pageStart, pageStart + countOfPage)
                             .map((item, i) => (
                               <div
                                 key={i}
-                                className="col-xl-4 col-md-6 col-sm-6"
+                                className="col-xl-3 col-md-6 col-sm-6"
                               >
-                                <ProductItem product={item} />
+                                {/* <ProductItem product={item} /> */}
+                                <ProductItem2 product={item} />
                               </div>
                             ))}
                         </div>
@@ -174,7 +177,7 @@ const ShopContent = ({
                   {/* product rating */}
                   <TopRatedProducts />
                   {/* brand */}
-                  <ProductBrand setCurrPage={setCurrPage} />
+                  {/* <ProductBrand setCurrPage={setCurrPage} /> */}
                   {/* reset filter */}
                   <ResetButton
                     setPriceValues={setPriceValue}
