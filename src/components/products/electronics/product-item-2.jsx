@@ -2,26 +2,15 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Rating } from 'react-simple-star-rating';
-import dayjs from 'dayjs';
 import { useDispatch, useSelector } from 'react-redux';
 import { Cart, QuickView, Wishlist, WishlistFill } from '@/svg';
-import Timer from '@/components/common/timer';
 import { handleProductModal } from '@/redux/features/productModalSlice';
 import { add_cart_product } from '@/redux/features/cartSlice';
 import { add_to_wishlist } from '@/redux/features/wishlist-slice';
 
-const ProductItem2 = ({ product, offer_design = false }) => {
-  const {
-    _id,
-    img,
-    category,
-    title,
-    reviews,
-    price,
-    discount,
-    status,
-    offerDate,
-  } = product || {};
+const ProductItem2 = ({ product, cardStyle = 'default' }) => {
+  const { _id, img, category, title, reviews, price, discount, status } =
+    product || {};
 
   const { cart_products } = useSelector(state => state.cart);
   const { wishlist } = useSelector(state => state.wishlist);
@@ -49,8 +38,17 @@ const ProductItem2 = ({ product, offer_design = false }) => {
     dispatch(add_to_wishlist(prd));
   };
 
+  const cardClasses = {
+    default: 'featured__card',
+    horizontal: 'featured__card featured__card--horizontal',
+    minimal: 'featured__card featured__card--minimal',
+    compact: 'featured__card featured__card--compact',
+    modern: 'featured__card featured__card--modern',
+    elegant: 'featured__card featured__card--elegant',
+  };
+
   return (
-    <div className="featured__card">
+    <div className={cardClasses[cardStyle]}>
       {discount > 0 && <span className="featured__discount">{discount}%</span>}
       {status === 'out-of-stock' && (
         <span className="featured__super-price">OUT OF STOCK</span>
@@ -73,22 +71,29 @@ const ProductItem2 = ({ product, offer_design = false }) => {
             className="featured__image object-fit-contain"
           />
         </div>
-        <button
-          className="featured__quick-view"
-          onClick={() => dispatch(handleProductModal(product))}
-        >
-          <QuickView />
-          Quick View
-        </button>
+        {cardStyle !== 'minimal' && (
+          <button
+            className="featured__quick-view"
+            onClick={() => dispatch(handleProductModal(product))}
+          >
+            <QuickView />
+            Quick View
+          </button>
+        )}
       </div>
       <div className="featured__content">
+        {cardStyle !== 'minimal' && category && (
+          <div className="featured__category">
+            {typeof category === 'object' ? category.name : category}
+          </div>
+        )}
         <h3 className="featured__product-title">
           <Link href={`/product-details/${_id}`}>{title}</Link>
         </h3>
         <div className="featured__rating">
           <Rating
             allowFraction
-            size={16}
+            size={cardStyle === 'minimal' ? 14 : 16}
             initialValue={ratingVal}
             readonly={true}
           />
@@ -115,21 +120,30 @@ const ProductItem2 = ({ product, offer_design = false }) => {
             </span>
           )}
         </div>
-        <div className="featured__stock">
-          {status === 'in-stock' ? (
-            <span className="featured__stock--in">In Stock</span>
-          ) : (
-            <span className="featured__stock--out">Out of Stock</span>
-          )}
-        </div>
+        {cardStyle !== 'minimal' && (
+          <div className="featured__stock">
+            {status === 'in-stock' ? (
+              <span className="featured__stock--in">In Stock</span>
+            ) : (
+              <span className="featured__stock--out">Out of Stock</span>
+            )}
+          </div>
+        )}
         {isAddedToCart ? (
-          <Link href="/cart" className="featured__add-to-cart">
+          <Link
+            href="/cart"
+            className={`featured__add-to-cart ${
+              cardStyle === 'minimal' ? 'featured__add-to-cart--minimal' : ''
+            }`}
+          >
             <Cart />
             View Cart
           </Link>
         ) : (
           <button
-            className="featured__add-to-cart"
+            className={`featured__add-to-cart ${
+              cardStyle === 'minimal' ? 'featured__add-to-cart--minimal' : ''
+            }`}
             onClick={() => handleAddProduct(product)}
             disabled={status === 'out-of-stock'}
           >

@@ -114,10 +114,21 @@ const ShopContent = ({
                             .map((item, i) => (
                               <div
                                 key={i}
-                                className="col-xl-3 col-md-6 col-sm-6"
+                                className="col-xl-4  col-md-6 col-sm-6"
                               >
                                 {/* <ProductItem product={item} /> */}
-                                <ProductItem2 product={item} />
+                                {/* <ProductItem2
+                                  product={item}
+                                  cartStyle1={true}
+                                /> */}
+                                {/* <ProductItem2
+                                  product={item}
+                                  cardStyle="horizontal"
+                                /> */}
+                                <ProductItem2
+                                  product={item}
+                                  cardStyle="elegant"
+                                />
                               </div>
                             ))}
                         </div>
