@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Rating } from 'react-simple-star-rating';
 import dayjs from 'dayjs';
 import { useDispatch, useSelector } from 'react-redux';
-import { Cart, QuickView, Wishlist, WishlistTwo, WishlistFill } from '@/svg';
+import { Cart, QuickView, Wishlist, WishlistFill } from '@/svg';
 import Timer from '@/components/common/timer';
 import { handleProductModal } from '@/redux/features/productModalSlice';
 import { add_cart_product } from '@/redux/features/cartSlice';

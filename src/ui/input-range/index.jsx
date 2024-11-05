@@ -1,5 +1,5 @@
 'use client';
-import { getTrackBackground, Range } from "react-range";
+import { getTrackBackground, Range } from 'react-range';
 
 const InputRange = ({ STEP, MIN, MAX, values, handleChanges }) => {
   return (
@@ -9,20 +9,20 @@ const InputRange = ({ STEP, MIN, MAX, values, handleChanges }) => {
         min={MIN}
         max={MAX}
         values={values}
-        onChange={(vals) => handleChanges(vals)}
+        onChange={vals => handleChanges(vals)}
         renderTrack={({ props, children }) => (
           <div
             {...props}
             key={props.key}
             style={{
               ...props.style,
-              height: '3px',
+              height: '2px', // Reduced from 3px
               width: '100%',
               background: getTrackBackground({
                 values: values,
-                colors: ["#EDEDED", "#0989FF", "#EDEDED"],
+                colors: ['#EDEDED', '#ef233c', '#EDEDED'],
                 min: MIN,
-                max: MAX
+                max: MAX,
               }),
             }}
           >
@@ -35,10 +35,15 @@ const InputRange = ({ STEP, MIN, MAX, values, handleChanges }) => {
             key={props.key}
             style={{
               ...props.style,
-              height: '17px',
-              width: '5px',
-              backgroundColor: '#0989FF',
-              backgroundColor: isDragged ? "#0989FF" : "#0989FF"
+              height: '14px', // Reduced from 17px
+              width: '14px', // Reduced from 17px
+              borderRadius: '50%',
+              backgroundColor: '#ef233c',
+              boxShadow: isDragged ? '0 0 5px rgba(239, 35, 60, 0.5)' : 'none',
+              transition: 'box-shadow 0.2s ease',
+              cursor: 'pointer',
+              border: '2px solid #fff', // Added white border for better visibility
+              outline: 'none',
             }}
           />
         )}
@@ -46,6 +51,5 @@ const InputRange = ({ STEP, MIN, MAX, values, handleChanges }) => {
     </>
   );
 };
-
 
 export default InputRange;
