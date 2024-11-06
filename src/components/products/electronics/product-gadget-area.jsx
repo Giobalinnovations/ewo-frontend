@@ -14,6 +14,7 @@ import b_bg_2 from '@assets/img/product/gadget/gadget-banner-2.jpg';
 import { useGetProductTypeQuery } from '@/redux/features/productApi';
 import gadget_girl from '@assets/img/product/gadget/gadget-girl.png';
 import HomeGadgetPrdLoader from '@/components/loader/home/home-gadget-prd-loader';
+import ProductItem2 from './product-item-2';
 
 const ProductGadgetArea = () => {
   const {
@@ -38,7 +39,7 @@ const ProductGadgetArea = () => {
     const product_items = products.data.slice(0, 6);
     content = product_items.map((prd, i) => (
       <div key={i} className="col-xl-4 col-sm-6">
-        <ProductItem product={prd} />
+        <ProductItem2 product={prd} cardStyle="modern-left" />
       </div>
     ));
   }
@@ -134,7 +135,7 @@ const ProductGadgetArea = () => {
             </div>
             <div className="col-xl-8 col-lg-7">
               <div className="tp-product-gadget-wrapper">
-                <div className="row">{content}</div>
+                <div className="row row-gap-4">{content}</div>
               </div>
             </div>
           </div>
