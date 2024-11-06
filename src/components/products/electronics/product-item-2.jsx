@@ -45,6 +45,7 @@ const ProductItem2 = ({ product, cardStyle = 'default' }) => {
     compact: 'featured__card featured__card--compact',
     modern: 'featured__card featured__card--modern',
     elegant: 'featured__card featured__card--elegant',
+    'modern-left': 'featured__card featured__card--modern-left',
   };
 
   return (
@@ -53,13 +54,32 @@ const ProductItem2 = ({ product, cardStyle = 'default' }) => {
       {status === 'out-of-stock' && (
         <span className="featured__super-price">OUT OF STOCK</span>
       )}
-      <button
-        className={`featured__wishlist ${isAddedToWishlist ? 'active' : ''}`}
-        onClick={() => handleWishlistProduct(product)}
-        disabled={status === 'out-of-stock'}
-      >
-        {isAddedToWishlist ? <WishlistFill /> : <Wishlist />}
-      </button>
+      {cardStyle === 'modern-left' && (
+        <div className="featured__actions-left">
+          <button
+            className="action-btn cart-btn"
+            onClick={() => handleAddProduct(product)}
+            disabled={status === 'out-of-stock'}
+          >
+            <Cart />
+          </button>
+          <button
+            className={`action-btn wishlist-btn ${
+              isAddedToWishlist ? 'active' : ''
+            }`}
+            onClick={() => handleWishlistProduct(product)}
+            disabled={status === 'out-of-stock'}
+          >
+            {isAddedToWishlist ? <WishlistFill /> : <Wishlist />}
+          </button>
+          <button
+            className="action-btn quick-view-btn"
+            onClick={() => dispatch(handleProductModal(product))}
+          >
+            <QuickView />
+          </button>
+        </div>
+      )}
       <div className="featured__image-wrapper">
         <div className="featured__image-container">
           <Image
@@ -71,7 +91,7 @@ const ProductItem2 = ({ product, cardStyle = 'default' }) => {
             className="featured__image object-fit-contain"
           />
         </div>
-        {cardStyle !== 'minimal' && (
+        {cardStyle !== 'minimal' && cardStyle !== 'modern-left' && (
           <button
             className="featured__quick-view"
             onClick={() => dispatch(handleProductModal(product))}
