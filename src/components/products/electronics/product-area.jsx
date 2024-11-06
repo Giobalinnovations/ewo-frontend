@@ -68,7 +68,11 @@ const ProductArea = ({
       >
         {product_items.map((product, i) => (
           <SwiperSlide key={i}>
-            <ProductItem2 product={product} offer_design={true} />
+            <ProductItem2
+              product={product}
+              offer_design={true}
+              cardStyle="elegant"
+            />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -78,28 +82,30 @@ const ProductArea = ({
   return (
     <section className="featured tp-product-area">
       <div className="container featured__container">
-        <div className="featured__header product-header">
-          <h2 className="featured__title product-title">Trending Products</h2>
-          <div className="featured__tabs product-tabs">
-            {tabs.map((tab, i) => (
-              <button
-                key={i}
-                onClick={() => handleActiveTab(tab)}
-                className={`featured__tab product-tab-button ${
-                  activeTab === tab ? 'featured__tab--active active' : ''
-                }`}
-              >
-                {tab === 'topSellers'
-                  ? 'Top Sellers'
-                  : tab.charAt(0).toUpperCase() + tab.slice(1)}
-              </button>
-            ))}
+        <div className="container">
+          <div className="featured__header product-header">
+            <h2 className="featured__title product-title">Trending Products</h2>
+            <div className="featured__tabs product-tabs">
+              {tabs.map((tab, i) => (
+                <button
+                  key={i}
+                  onClick={() => handleActiveTab(tab)}
+                  className={`featured__tab product-tab-button ${
+                    activeTab === tab ? 'featured__tab--active active' : ''
+                  }`}
+                >
+                  {tab === 'topSellers'
+                    ? 'Top Sellers'
+                    : tab.charAt(0).toUpperCase() + tab.slice(1)}
+                </button>
+              ))}
+            </div>
+            <Link href="/products" className="featured__view-all view-all-link">
+              View All →
+            </Link>
           </div>
-          <Link href="/products" className="featured__view-all view-all-link">
-            View All →
-          </Link>
+          {content}
         </div>
-        {content}
       </div>
     </section>
   );
