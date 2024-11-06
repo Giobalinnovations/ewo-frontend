@@ -680,13 +680,15 @@
 // FEATURED PRODUCTS
 
 .featured {
-  padding: 40px 0;
-
-  &__container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
+  // padding: 40px 0;
+  &__slider {
+    padding-top: 10px !important;
   }
+  // &__container {
+  //   max-width: 1200px;
+  //   margin: 0 auto;
+  //   padding: 0 15px;
+  // }
 
   &__header {
     display: flex;
