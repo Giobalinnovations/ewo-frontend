@@ -16,6 +16,11 @@ import ProductSmArea from '@/components/products/electronics/product-sm-area';
 import Footer from '@/layout/footers/footer';
 import GoodCategories from '@/components/GoodCategories';
 import FeaturedProducts from '@/components/FeaturedProducts';
+import Banner2 from '@/components/banner2/Banner2';
+import {
+  bannerDataHome2,
+  bannerDataHome3,
+} from '@/components/banner2/bannerStyleData';
 
 export default function HomePage() {
   return (
@@ -23,14 +28,14 @@ export default function HomePage() {
       <Header />
       <HomeHeroSlider />
       <ElectronicCategory />
-
       <ProductArea activeTabText="new" />
-      <BannerArea />
+      <Banner2 items={[...bannerDataHome2]} columns={3} showBadge={false} />
       <OfferProducts />
       <ProductGadgetArea />
-      {/* <ProductBanner /> */}
+      <Banner2 items={[...bannerDataHome3]} columns={2} showBadge={false} />
       <NewArrivals />
       <ProductSmArea otherLayout={true} />
+      <Banner2 items={[...bannerDataHome2]} columns={3} showBadge={false} />
       <BlogArea />
       <CtaArea />
 
