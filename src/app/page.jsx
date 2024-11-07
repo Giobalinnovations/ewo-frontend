@@ -28,7 +28,7 @@ export default function HomePage() {
       <BannerArea />
       <OfferProducts />
       <ProductGadgetArea />
-      <ProductBanner />
+      {/* <ProductBanner /> */}
       <NewArrivals />
       <ProductSmArea otherLayout={true} />
       <BlogArea />

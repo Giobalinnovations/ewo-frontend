@@ -38,7 +38,7 @@ const HomeHeroSlider = () => {
 
   return (
     <>
-      <section className="tp-slider-area p-relative z-index-1 pb-55">
+      <section className="tp-slider-area p-relative z-index-1 pb-35">
         <Swiper
           slidesPerView={1}
           spaceBetween={30}
