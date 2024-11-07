@@ -7,6 +7,7 @@ import { ArrowRightLong, ShapeLine } from '@/svg';
 import blogData from '@/data/blog-data';
 import BlogItem from './blog-item';
 import Link from 'next/link';
+import SectionHeader from '@/components/common/SectionHeader';
 
 // slider setting
 const slider_setting = {
@@ -47,7 +48,7 @@ const BlogArea = () => {
   return (
     <section className="tp-blog-area section-pb">
       <div className="container">
-        <div className="row align-items-end">
+        {/* <div className="row align-items-end">
           <div className="col-xl-4 col-md-6">
             <div className="tp-section-title-wrapper mb-50">
               <h3 className="tp-section-title">Latest news & articles</h3>
@@ -64,7 +65,8 @@ const BlogArea = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
+        <SectionHeader title="Latest News & Articles" viewAllLink="/blog" />
         <div className="row">
           <div className="col-xl-12">
             <div className="tp-blog-main-slider">
