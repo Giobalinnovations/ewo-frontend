@@ -17,25 +17,43 @@
     display: grid;
     gap: 24px;
 
-    // Column variations with specific styles
-    &.banner2-cols-1 {
-      grid-template-columns: 1fr;
+    // Default mobile first - 1 column
+    grid-template-columns: 1fr;
 
+    // Medium devices (tablets) - 2 columns
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    // Large devices - column count based on class
+    @media (min-width: 992px) {
+      &.banner2-cols-1 {
+        grid-template-columns: 1fr;
+      }
+
+      &.banner2-cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      &.banner2-cols-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    // Specific styles for different column layouts
+    &.banner2-cols-1 {
       .banner2-content {
         max-width: 60%;
       }
     }
 
     &.banner2-cols-2 {
-      grid-template-columns: repeat(2, 1fr);
-
       .banner2-content {
         max-width: 60%;
       }
     }
 
     &.banner2-cols-3 {
-      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
 
       .banner2-content {
@@ -80,39 +98,40 @@
       }
     }
 
+    // Responsive adjustments
     @media #{$lg} {
       gap: 20px;
     }
 
     @media #{$md} {
-      &.banner2-cols-2,
-      &.banner2-cols-3 {
-        grid-template-columns: repeat(2, 1fr);
+      .banner2-content {
+        max-width: 70%;
+        padding: 30px;
+      }
 
-        .banner2-content {
-          max-width: 70%;
-          padding: 30px;
-        }
+      .banner2-title {
+        font-size: 26px;
+      }
 
-        .banner2-title {
-          font-size: 26px;
-        }
+      .banner2-item {
+        min-height: 300px;
       }
     }
 
     @media #{$sm} {
-      &.banner2-cols-2,
-      &.banner2-cols-3 {
-        grid-template-columns: 1fr;
+      grid-template-columns: 1fr !important; // Force single column on mobile
 
-        .banner2-content {
-          max-width: 70%;
-          padding: 25px;
-        }
+      .banner2-content {
+        max-width: 70%;
+        padding: 25px;
+      }
 
-        .banner2-title {
-          font-size: 24px;
-        }
+      .banner2-title {
+        font-size: 24px;
+      }
+
+      .banner2-item {
+        min-height: 280px;
       }
     }
   }
