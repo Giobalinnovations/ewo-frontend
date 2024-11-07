@@ -49,3 +49,32 @@ export const bannerDataHome3 = [
     isDark: true,
   },
 ];
+export const bannerDataHome4 = [
+  {
+    badge: 'On Sale This Week',
+    title: 'EWO : Where Quality Meets the Road',
+    text: 'Quality for the journey. Quality that lasts the test of time.',
+    image: '/assets/img/banner/styles/banner-01.jpg',
+    buttonLink: '/shop',
+    buttonText: 'Fuel Your Ride',
+    isDark: false,
+  },
+  {
+    badge: 'On Sale This Week',
+    title: 'Engineered with Excellence and Technology',
+    text: 'Fuel your passion for performance with top-grade auto parts designed to last.',
+    image: '/assets/img/banner/styles/banner-01.jpg',
+    buttonLink: '/shop',
+    buttonText: 'Discover More',
+    isDark: true,
+  },
+  {
+    badge: 'On Sale This Week',
+    title: 'Transform Every Mile',
+    text: 'Redefine your ride with trusted parts that keep you going.',
+    image: '/assets/img/banner/styles/banner-01.jpg',
+    buttonLink: '/shop',
+    buttonText: 'Start Your Search',
+    isDark: true,
+  },
+];

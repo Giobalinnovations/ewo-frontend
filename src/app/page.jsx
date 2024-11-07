@@ -20,6 +20,7 @@ import Banner2 from '@/components/banner2/Banner2';
 import {
   bannerDataHome2,
   bannerDataHome3,
+  bannerDataHome4,
 } from '@/components/banner2/bannerStyleData';
 
 export default function HomePage() {
@@ -35,9 +36,9 @@ export default function HomePage() {
       <Banner2 items={[...bannerDataHome3]} columns={2} showBadge={false} />
       <NewArrivals />
       <ProductSmArea otherLayout={true} />
-      <Banner2 items={[...bannerDataHome2]} columns={3} showBadge={false} />
+      <Banner2 items={[...bannerDataHome4]} columns={3} showBadge={false} />
       <BlogArea />
-      <CtaArea />
+      {/* <CtaArea /> */}
 
       <Footer />
     </Wrapper>

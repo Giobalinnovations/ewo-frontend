@@ -50,22 +50,18 @@ export default function Banner2({
   showBadge = true,
 }) {
   return (
-    <div className="pb-35">
+    <div className="banner2-area pt-40 pb-35">
       <div className="container">
-        <div className={`banner2-area ${className}`}>
-          <div className="container">
-            <div className={`banner2-wrapper banner2-cols-${columns}`}>
-              {items.map((item, index) => (
-                <BannerItem
-                  key={index}
-                  {...item}
-                  showBadge={
-                    item.showBadge !== undefined ? item.showBadge : showBadge
-                  }
-                />
-              ))}
-            </div>
-          </div>
+        <div className={`banner2-wrapper banner2-cols-${columns} ${className}`}>
+          {items.map((item, index) => (
+            <BannerItem
+              key={index}
+              {...item}
+              showBadge={
+                item.showBadge !== undefined ? item.showBadge : showBadge
+              }
+            />
+          ))}
         </div>
       </div>
     </div>
