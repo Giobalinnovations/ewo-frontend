@@ -3,33 +3,49 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRightLong } from '@/svg';
 
-const BlogItem = ({blog}) => {
+const BlogItem = ({ blog, variant = 'default' }) => {
   return (
-    <div className="tp-blog-item mb-30">
-      <div className="tp-blog-thumb p-relative fix">
-        <Link href={`/blog-details/${blog.id}`}>
-          <Image src={blog.img} alt="blog img" style={{width:'100%',height:'100%'}} />
-        </Link>
-        <div className="tp-blog-meta tp-blog-meta-date">
-          <span>{blog.date}</span>
+    <div className={`tp-blog-item tp-blog-item-${variant} mb-50`}>
+      <Link
+        href={`/blog-details/${blog.id}`}
+        className="tp-blog-thumb p-relative fix"
+        style={{ marginBottom: '0px!important' }}
+      >
+        <Image
+          src={blog.img}
+          alt={blog.title}
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        />
+        <div className="tp-blog-meta-top">
+          <div className="tp-blog-category">
+            <span>{blog.category}</span>
+          </div>
         </div>
-      </div>
+      </Link>
+
       <div className="tp-blog-content">
-        <h3 className="tp-blog-title">
+        <div className="tp-blog-meta">
+          <span className="date">{blog.date}</span>
+        </div>
+
+        <h3
+          className={`tp-blog-title ${
+            variant === 'minimal' ? 'tp-blog-title-sm' : ''
+          }`}
+        >
           <Link href={`/blog-details/${blog.id}`}>{blog.title}</Link>
         </h3>
 
-        <div className="tp-blog-tag">
-          <span><i className="fa-light fa-tag"></i></span>
-          {blog.tags.map((t,i) => <a key={i} href="#">Tablet,</a>)}
-        </div>
-
-        <p>{blog.sm_desc}</p>
+        {variant !== 'minimal' && (
+          <div className="tp-blog-desc">
+            <p>{blog.sm_desc}</p>
+          </div>
+        )}
 
         <div className="tp-blog-btn">
-          <Link href={`/blog-details/${blog.id}`} className="tp-btn-2 tp-btn-border-2">
+          <Link href={`/blog-details/${blog.id}`} className="read-more-btn">
             Read More
-            <span>
+            <span className="arrow-icon">
               <ArrowRightLong />
             </span>
           </Link>

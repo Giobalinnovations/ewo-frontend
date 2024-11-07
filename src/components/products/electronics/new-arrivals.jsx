@@ -8,6 +8,7 @@ import { NextArr, PrevArr } from '@/svg';
 import ErrorMsg from '@/components/common/error-msg';
 import ProductItem from './product-item';
 import HomeNewArrivalPrdLoader from '@/components/loader/home/home-newArrival-prd-loader';
+import ProductItem2 from './product-item-2';
 
 // slider setting
 const slider_setting = {
@@ -67,8 +68,11 @@ const NewArrivals = () => {
         className="tp-product-arrival-active swiper-container"
       >
         {product_items.map(item => (
-          <SwiperSlide key={item._id}>
-            <ProductItem product={item} />
+          <SwiperSlide
+            key={item._id}
+            style={{ paddingBottom: '30px', paddingInline: '10px' }}
+          >
+            <ProductItem2 product={item} cardStyle="modern" />
           </SwiperSlide>
         ))}
       </Swiper>

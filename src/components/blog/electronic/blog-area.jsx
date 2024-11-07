@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 // slider setting
 const slider_setting = {
-  slidesPerView: 3,
+  slidesPerView: 4,
   spaceBetween: 20,
   autoplay: {
     delay: 4000,
@@ -43,7 +43,7 @@ const slider_setting = {
 };
 
 const BlogArea = () => {
-  const blogs = blogData.filter(b => b.blog === 'electronics');
+  const blogs = blogData;
   return (
     <section className="tp-blog-area section-pb">
       <div className="container">
@@ -75,7 +75,7 @@ const BlogArea = () => {
               >
                 {blogs.map(blog => (
                   <SwiperSlide key={blog.id}>
-                    <BlogItem blog={blog} />
+                    <BlogItem blog={blog} variant="" />
                   </SwiperSlide>
                 ))}
               </Swiper>
