@@ -776,7 +776,10 @@
     }
 
     .swiper-pagination-bullet-active {
-      background-color: #ff3c3c;
+      background-color: #ff3c3c !important;
+    }
+    .swiper-pagination-bullet.swiper-pagination-bullet-active {
+      background-color: #ff3c3c !important;
     }
   }
 
@@ -1956,4 +1959,9 @@
       background-color: #ff3c3c;
     }
   }
+}
+
+.swiper-pagination-custom
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: var(--tp-theme-primary) !important;
 }

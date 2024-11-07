@@ -39,7 +39,7 @@ const ProductGadgetArea = () => {
     const product_items = products.data.slice(0, 6);
     content = product_items.map((prd, i) => (
       <div key={i} className="col-xl-4 col-sm-6">
-        <ProductItem2 product={prd} cardStyle="modern-left" />
+        <ProductItem2 product={prd} cardStyle="modern" />
       </div>
     ));
   }

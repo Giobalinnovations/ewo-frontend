@@ -10,6 +10,7 @@ import ErrorMsg from '@/components/common/error-msg';
 import ProductSmItem from './product-sm-item';
 import HomeSmPrdLoader from '@/components/loader/home/home-sm-prd-loader';
 import Link from 'next/link';
+import ProductItem2 from './product-item-2';
 
 const ProductSmArea = () => {
   const [activeTab, setActiveTab] = useState('discount products');
@@ -76,7 +77,8 @@ const ProductSmArea = () => {
       >
         {filteredProducts.map((product, i) => (
           <SwiperSlide key={i}>
-            <ProductSmItem product={product} />
+            {/* <ProductSmItem product={product} /> */}
+            <ProductItem2 product={product} cardStyle="elegant" />
           </SwiperSlide>
         ))}
       </Swiper>
