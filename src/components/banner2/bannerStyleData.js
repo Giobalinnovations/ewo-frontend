@@ -48,7 +48,7 @@ export const bannerDataHome3 = [
     title: 'Essentials to Upgrade, you can Rely on.',
     text: 'From must-have components to performance enhancers, EWO has it all. Find premium parts crafted for endurance and power.',
     image:
-      'https://res.cloudinary.com/datdyxl7o/image/upload/c_fill,w_546,h_363/v1731061049/banner-style-5_jkv2nv.jpg',
+      'https://res.cloudinary.com/datdyxl7o/image/upload/c_fill,w_359,h_300/v1731060158/banner-style-2_np00d6.jpg',
     buttonLink: '/shop',
     buttonText: 'Shop the best part',
     isDark: true,
@@ -59,7 +59,8 @@ export const bannerDataHome4 = [
     badge: 'On Sale This Week',
     title: 'EWO : Where Quality Meets the Road',
     text: 'Quality for the journey. Quality that lasts the test of time.',
-    image: '/assets/img/banner/styles/banner-01.jpg',
+    image:
+      'https://res.cloudinary.com/datdyxl7o/image/upload/c_fill,w_359,h_300/v1731062366/banner-style-7_mtdolk.jpg',
     buttonLink: '/shop',
     buttonText: 'Fuel Your Ride',
     isDark: false,
@@ -68,7 +69,8 @@ export const bannerDataHome4 = [
     badge: 'On Sale This Week',
     title: 'Engineered with Excellence and Technology',
     text: 'Fuel your passion for performance with top-grade auto parts designed to last.',
-    image: '/assets/img/banner/styles/banner-01.jpg',
+    image:
+      'https://res.cloudinary.com/datdyxl7o/image/upload/c_fill,w_359,h_300/v1731060158/banner-style-3_dmpoal.jpg',
     buttonLink: '/shop',
     buttonText: 'Discover More',
     isDark: true,
@@ -77,7 +79,8 @@ export const bannerDataHome4 = [
     badge: 'On Sale This Week',
     title: 'Transform Every Mile',
     text: 'Redefine your ride with trusted parts that keep you going.',
-    image: '/assets/img/banner/styles/banner-01.jpg',
+    image:
+      'https://res.cloudinary.com/datdyxl7o/image/upload/c_fill,w_359,h_300/v1731062366/banner-style-6_ftd1db.jpg',
     buttonLink: '/shop',
     buttonText: 'Start Your Search',
     isDark: true,
