@@ -40,8 +40,9 @@ const Footer = ({
                       </Link>
                     </div>
                     <p className="tp-footer-desc">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Eos debitis, odit velit nemo delectus pariatur explicabo
+                      Your trusted source for high-quality off-road parts and
+                      custom vehicle components. Built to endure the toughest
+                      terrains for serious builders and off-road adventurers.
                     </p>
                     <div className="tp-footer-social">
                       {social_data.map(s => (

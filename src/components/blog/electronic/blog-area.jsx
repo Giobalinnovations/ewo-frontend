@@ -2,11 +2,10 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
-// internal
-import { ArrowRightLong, ShapeLine } from '@/svg';
+
 import blogData from '@/data/blog-data';
 import BlogItem from './blog-item';
-import Link from 'next/link';
+
 import SectionHeader from '@/components/common/SectionHeader';
 
 // slider setting
@@ -48,24 +47,6 @@ const BlogArea = () => {
   return (
     <section className="tp-blog-area section-pb">
       <div className="container">
-        {/* <div className="row align-items-end">
-          <div className="col-xl-4 col-md-6">
-            <div className="tp-section-title-wrapper mb-50">
-              <h3 className="tp-section-title">Latest news & articles</h3>
-            </div>
-          </div>
-          <div className="col-xl-8 col-md-6">
-            <div className="tp-blog-more-wrapper d-flex justify-content-md-end">
-              <div className="tp-blog-more mb-50 text-md-end">
-                <Link href="/blog" className="tp-btn tp-btn-2 tp-btn-blue">
-                  View All Blog
-                  <ArrowRightLong />
-                </Link>
-                <span className="tp-blog-more-border"></span>
-              </div>
-            </div>
-          </div>
-        </div> */}
         <SectionHeader title="Latest News & Articles" viewAllLink="/blog" />
         <div className="row">
           <div className="col-xl-12">
