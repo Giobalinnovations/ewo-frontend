@@ -23,6 +23,8 @@ import {
   bannerDataHome4,
 } from '@/components/banner2/bannerStyleData';
 
+import BeautyTestimonial from '@/components/testimonial/beauty-testimonial';
+
 export default function HomePage() {
   return (
     <Wrapper>
@@ -37,6 +39,8 @@ export default function HomePage() {
       <NewArrivals />
       <ProductSmArea otherLayout={true} />
       <Banner2 items={[...bannerDataHome4]} columns={3} showBadge={false} />
+      {/* <FashionTestimonial /> */}
+      <BeautyTestimonial />
       <BlogArea />
       {/* <CtaArea /> */}
 
