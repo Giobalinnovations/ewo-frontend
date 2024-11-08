@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-// internal
+import pay from '@assets/img/footer/footer-pay.png';
 import logo from '@assets/img/logo/logo.webp';
 
 const Footer6 = ({ variant = 'default' }) => {
@@ -18,7 +18,7 @@ const Footer6 = ({ variant = 'default' }) => {
                   <Link href="/">
                     <Image
                       src={logo}
-                      alt="Mobex"
+                      alt="Ewo"
                       priority
                       width={200}
                       height={40}
@@ -115,7 +115,7 @@ const Footer6 = ({ variant = 'default' }) => {
         <div className="container">
           <div className="footer-bottom-inner">
             <div className="copyright">
-              <p>© {new Date().getFullYear()} Mobex. All Rights Reserved</p>
+              <p>© {new Date().getFullYear()} Ewo. All Rights Reserved</p>
             </div>
             <div className="footer-links">
               <Link href="/terms">Terms of Use</Link>
@@ -126,7 +126,7 @@ const Footer6 = ({ variant = 'default' }) => {
             <div className="payment-section">
               <span>Payment options</span>
               <div className="payment-methods">
-                {[
+                {/* {[
                   'apple-pay',
                   'google-pay',
                   'mastercard',
@@ -142,7 +142,16 @@ const Footer6 = ({ variant = 'default' }) => {
                     height={25}
                     className="payment-icon"
                   />
-                ))}
+                ))} */}
+                <Image
+                  // key={method}
+                  // src={`/assets/img/payment/${method}.png`}
+                  src={pay ?? ''}
+                  alt="pay"
+                  // width={40}
+                  // height={25}
+                  className="payment-icon"
+                />
               </div>
             </div>
           </div>
