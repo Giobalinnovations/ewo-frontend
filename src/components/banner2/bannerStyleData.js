@@ -78,3 +78,29 @@ export const bannerDataHome4 = [
     isDark: true,
   },
 ];
+
+export const sidebarBannerData = [
+  // {
+  //   badge: '-35%',
+  //   title:
+  //     'Update your vehicle with premium-quality auto parts at an unbeatable price. Limited time offer.',
+  //   text: 'Drive more to Get',
+  //   text2: 'OFF on top quality Auto parts',
+  //   buttonText: 'Claim Your Discount',
+  //   buttonLink: '/shop',
+  //   image: '/assets/img/banner/styles/banner-02.jpg',
+  //   isDark: true,
+  //   showBadge: true,
+  // },
+  {
+    badge: '-35%',
+    title:
+      'Quality parts for performance and safety. Trust EWO to take care of your needs with your vehicle.',
+    text: 'Built to Last: Premium Auto Parts at EWO',
+    buttonText: 'Shop Now & Save',
+    buttonLink: '/shop',
+    image: '/assets/img/banner/styles/banner-02.jpg',
+    isDark: true,
+    showBadge: false,
+  },
+];

@@ -48,9 +48,10 @@ export default function Banner2({
   columns = 2,
   className = '',
   showBadge = true,
+  banner2AreaPt = 40,
 }) {
   return (
-    <div className="banner2-area pt-40 pb-35">
+    <div className={`banner2-area pt-${banner2AreaPt} pb-35`}>
       <div className="container">
         <div className={`banner2-wrapper banner2-cols-${columns} ${className}`}>
           {items.map((item, index) => (
