@@ -23,7 +23,9 @@ export default function HomePage() {
   return (
     <Wrapper>
       <Header />
-      <HomeHeroSlider />
+      <div className="pb-35">
+        <HomeHeroSlider />
+      </div>
       <ElectronicCategory />
       <ProductArea activeTabText="new" />
       <Banner2 items={[...bannerDataHome2]} columns={3} showBadge={false} />
