@@ -1,114 +1,113 @@
 'use client';
-// external
-import React, { useState } from 'react';
+import React from 'react';
 import { Navigation, Pagination, EffectFade } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
-import Link from 'next/link';
-// internal
-import banner1 from '@assets/img/banner/slider/banner1.webp';
-import banner1Mobile from '@assets/img/banner/slider/banner1-mobile.webp';
-import { ArrowRightLong, SliderNextBtn, SliderPrevBtn } from '@/svg';
 
 // slider data
 const sliderData = [
   {
     id: 1,
-    title: 'Your One-Stop Shop for Reliable Auto Parts',
-    subtitle: 'Drive with Confidence, Drive with Quality',
-    img: banner1,
-    mobileImg: banner1Mobile,
+    desktopImg:
+      'https://res.cloudinary.com/datdyxl7o/image/upload/f_auto,q_auto/v1731326596/EWO_BANNER_2_1_lsyohw.jpg',
+    mobileImg:
+      'https://res.cloudinary.com/datdyxl7o/image/upload/f_auto,q_auto,w_768/v1731326596/EWO_BANNER_2_1_lsyohw.jpg',
+    alt: 'Hero banner 1',
   },
   {
     id: 2,
-    title: 'Your One-Stop Shop for Reliable Auto Parts',
-    subtitle: 'Drive with Confidence, Drive with Quality',
-    img: banner1,
-    mobileImg: banner1Mobile,
+    desktopImg:
+      'https://res.cloudinary.com/datdyxl7o/image/upload/f_auto,q_auto/v1731326622/EWO_BANNER_rtzlvt.jpg',
+    mobileImg:
+      'https://res.cloudinary.com/datdyxl7o/image/upload/f_auto,q_auto,w_768/v1731326622/EWO_BANNER_rtzlvt.jpg',
+    alt: 'Hero banner 2',
+  },
+  {
+    id: 3,
+    desktopImg:
+      'https://res.cloudinary.com/datdyxl7o/image/upload/f_auto,q_auto/v1731326612/EWO_BANNER_2_vb5vzz.jpg',
+    mobileImg:
+      'https://res.cloudinary.com/datdyxl7o/image/upload/f_auto,q_auto,w_768/v1731326612/EWO_BANNER_2_vb5vzz.jpg',
+    alt: 'Hero banner 3',
   },
 ];
 
 const HomeHeroSlider = () => {
-  const [active, setActive] = useState(false);
-
-  // handleActiveIndex
-  const handleActiveIndex = index => {
-    setActive(index === 0);
-  };
-
   return (
-    <>
-      <section className="tp-slider-area p-relative z-index-1 pb-35">
-        <Swiper
-          slidesPerView={1}
-          spaceBetween={30}
-          loop={false}
-          effect="fade"
-          navigation={{
-            nextEl: '.tp-slider-button-next',
-            prevEl: '.tp-slider-button-prev',
-          }}
-          onSlideChange={swiper => handleActiveIndex(swiper.activeIndex)}
-          pagination={{ el: '.tp-slider-dot', clickable: true }}
-          modules={[Navigation, Pagination, EffectFade]}
-          className={`tp-slider-active tp-slider-variation swiper-container ${
-            active ? 'is-light' : ''
-          }`}
-        >
-          {sliderData.map(item => (
-            <SwiperSlide
-              key={item.id}
-              className="tp-slider-item tp-slider-height d-flex align-items-center"
-              // style={{
-              //   backgroundImage: `url(${item.img.src})`,
-              //   backgroundSize: 'cover',
-              //   backgroundPosition: 'center',
-              // }}
-            >
+    <section className="hero-slider">
+      <Swiper
+        slidesPerView={1}
+        effect="fade"
+        loop={true}
+        navigation={{
+          nextEl: '.hero-slider-next',
+          prevEl: '.hero-slider-prev',
+        }}
+        pagination={{
+          el: '.hero-slider-pagination',
+          clickable: true,
+        }}
+        modules={[Navigation, Pagination, EffectFade]}
+        className="hero-slider-container"
+      >
+        {sliderData.map(slide => (
+          <SwiperSlide key={slide.id} className="hero-slide">
+            {/* Desktop Image */}
+            <div className="hero-slide-desktop">
               <Image
-                src={item?.img?.src ?? ''}
-                alt="banner"
-                // loading="lazy"
-                // placeholder="blur"
+                src={slide.desktopImg}
+                alt={slide.alt}
                 fill
                 priority
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="object-fit-cover object-position-center"
+                sizes="(max-width: 768px) 100vw, 100vw"
+                quality={95}
+                className="hero-slide-img"
+                style={{ objectFit: 'contain' }}
               />
-              <div className="container">
-                <div className="row align-items-center">
-                  <div className="col-xl-5 col-lg-6 col-md-6">
-                    <div className="tp-slider-content p-relative z-index-1">
-                      <h3 className="tp-slider-title text-white">
-                        {item.title}
-                      </h3>
-                      <p className="text-white">{item.subtitle}</p>
-                      <div className="tp-slider-btn">
-                        <Link
-                          href="/shop"
-                          className="tp-btn tp-btn-2 tp-btn-white"
-                        >
-                          Shop Now <ArrowRightLong />
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-          <div className="tp-slider-arrow tp-swiper-arrow">
-            <button type="button" className="tp-slider-button-prev">
-              <SliderPrevBtn />
-            </button>
-            <button type="button" className="tp-slider-button-next">
-              <SliderNextBtn />
-            </button>
-          </div>
-          <div className="tp-slider-dot tp-swiper-dot"></div>
-        </Swiper>
-      </section>
-    </>
+            </div>
+
+            {/* Mobile Image */}
+            <div className="hero-slide-mobile">
+              <Image
+                src={slide.mobileImg}
+                alt={slide.alt}
+                fill
+                priority
+                sizes="100vw"
+                quality={90}
+                className="hero-slide-img"
+                style={{ objectFit: 'contain' }}
+              />
+            </div>
+          </SwiperSlide>
+        ))}
+
+        {/* Navigation Buttons */}
+        <button className="hero-slider-prev">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+          </svg>
+        </button>
+        <button className="hero-slider-next">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+          </svg>
+        </button>
+
+        {/* Pagination */}
+        <div className="hero-slider-pagination"></div>
+      </Swiper>
+    </section>
   );
 };
 
