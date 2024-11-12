@@ -1,13 +1,12 @@
-'use client'
-import React from "react";
-import Link from "next/link";
+'use client';
+import React from 'react';
+import Link from 'next/link';
 // internal
-import LoginForm from "../forms/login-form";
-import LoginShapes from "./login-shapes";
-import GoogleSignUp from "./google-sign-up";
+import LoginForm from '../forms/login-form';
+import LoginShapes from './login-shapes';
+import GoogleSignUp from './google-sign-up';
 
 const LoginArea = () => {
-
   return (
     <>
       <section className="tp-login-area pb-140 p-relative z-index-1 fix">
@@ -17,9 +16,9 @@ const LoginArea = () => {
             <div className="col-xl-6 col-lg-8">
               <div className="tp-login-wrapper">
                 <div className="tp-login-top text-center mb-30">
-                  <h3 className="tp-login-title">Login to Shofy.</h3>
+                  <h3 className="tp-login-title">Login to EWO.</h3>
                   <p>
-                    Don’t have an account?{" "}
+                    Don’t have an account?{' '}
                     <span>
                       <Link href="/register">Create a free account</Link>
                     </span>
@@ -27,9 +26,10 @@ const LoginArea = () => {
                 </div>
                 <div className="tp-login-option">
                   <div className="tp-login-social mb-10 d-flex flex-wrap align-items-center justify-content-center">
-                    <div className="tp-login-option-item has-google">
-                      <GoogleSignUp/>
-                    </div>
+                    {/* TODO : Google Sign Up REMOVE COMMENT */}
+                    {/* <div className="tp-login-option-item has-google">
+                      <GoogleSignUp />
+                    </div> */}
                   </div>
                   <div className="tp-login-mail text-center mb-40">
                     <p>

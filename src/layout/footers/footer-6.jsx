@@ -20,7 +20,7 @@ const Footer6 = ({ variant = 'default' }) => {
                       src={logo}
                       alt="Ewo"
                       priority
-                      width={200}
+                      width={140}
                       height={40}
                     />
                   </Link>
