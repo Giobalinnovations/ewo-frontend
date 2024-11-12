@@ -3,6 +3,7 @@ $colors: (
     'white': #ffffff,
     'black-solid': #000,
     'black': #010f1c,
+    'dark-bg': #252831,
   ),
   'yellow': (
     '1': #ffb342,
@@ -23,7 +24,8 @@ $colors: (
     '1': #ab9774,
   ),
   'blue': (
-    '1': #ef233c,
+    // '1': hsl(343.98deg 73.52% 42.94%),
+    '1': hsl(343.98deg 73.52% 42.94%),
   ),
   'orange': (
     '1': #ff6736,
@@ -53,7 +55,7 @@ $colors: (
     '6': #90969b,
   ),
   'theme': (
-    'primary': #ef233c,
+    'primary': hsl(343.98deg 73.52% 42.94%),
     'secondary': #821f40,
     'brown': #bd844c,
     'green': #678e61,
@@ -71,5 +73,6 @@ $colors: (
 
 $white: #fff;
 $black: #010f1c;
-$theme-primary: #ef233c;
+// $theme-primary: hsl(343.98deg 73.52% 42.94%);
+$theme-primary: hsl(343.98deg 73.52% 42.94%);
 $border-primary: #eaebed;
