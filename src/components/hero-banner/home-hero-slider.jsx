@@ -1,12 +1,6 @@
 'use client';
 import React from 'react';
-import {
-  Navigation,
-  Pagination,
-  EffectFade,
-  Autoplay,
-  EffectCreative,
-} from 'swiper/modules';
+import { Navigation, Pagination, EffectFade, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -44,15 +38,9 @@ const HomeHeroSlider = () => {
     <section className="hero-slider">
       <Swiper
         slidesPerView={1}
-        effect="creative"
-        creativeEffect={{
-          prev: {
-            shadow: true,
-            translate: ['-20%', 0, -1],
-          },
-          next: {
-            translate: ['100%', 0, 0],
-          },
+        effect="fade"
+        fadeEffect={{
+          crossFade: true,
         }}
         loop={true}
         speed={1500}
@@ -74,7 +62,7 @@ const HomeHeroSlider = () => {
           },
         }}
         grabCursor={true}
-        modules={[Navigation, Pagination, EffectCreative, Autoplay]}
+        modules={[Navigation, Pagination, EffectFade, Autoplay]}
         className="hero-slider-container"
       >
         {sliderData.map(slide => (
