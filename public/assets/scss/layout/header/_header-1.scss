@@ -15,7 +15,7 @@
       -webkit-animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
       animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
       box-shadow: 0px 2px 6px rgba(1, 15, 28, 0.16);
-      background: var(--tp-common-white);
+      background: #252831;
     }
     &-area {
       position: fixed;
@@ -28,7 +28,7 @@
 
       -webkit-box-shadow: 0px 4px 10px rgba(3, 4, 28, 0.1);
       box-shadow: 0px 4px 10px rgba(3, 4, 28, 0.1);
-      background: var(--tp-common-white);
+      background: #252831;
       visibility: hidden;
       opacity: 0;
 
@@ -38,6 +38,7 @@
       }
       & .main-menu.menu-style-1 > nav > ul > li > a {
         padding: 20px 0;
+        color: #fff !important;
       }
 
       &.header-sticky-2 {
@@ -70,7 +71,7 @@
       @extend %tp-ff-roboto;
       font-weight: 500;
       font-size: 13px;
-      color: var(--tp-common-white);
+      color: #fff;
       opacity: 0.8;
       margin-bottom: 0;
     }
@@ -87,7 +88,7 @@
           font-weight: 500;
           font-size: 13px;
           @extend %tp-ff-roboto;
-          color: var(--tp-common-white);
+          color: #fff;
           padding-right: 20px;
           &::after {
             position: absolute;
@@ -105,7 +106,7 @@
           top: 125%;
           right: 0;
           z-index: 1;
-          background-color: var(--tp-common-white);
+          background-color: #252831;
           padding: 10px 15px;
           box-shadow: 0px 1px 3px rgba(3, 4, 28, 0.12);
           visibility: hidden;
@@ -126,7 +127,7 @@
             & a {
               @extend %tp-ff-roboto;
               font-size: 14px;
-              color: var(--tp-common-black);
+              color: #fff;
 
               &:hover {
                 color: var(--tp-theme-primary);
@@ -145,7 +146,6 @@
 
     &-wrapper {
       position: relative;
-      //   border: 2px solid var(--tp-theme-primary);
       border: 2px solid var(--tp-theme-primary);
       margin-left: 10px;
     }
@@ -159,12 +159,12 @@
         padding-right: 25px;
         width: 100%;
         height: 46px;
-        background-color: var(--tp-common-white);
-        color: var(--tp-common-black);
+        background-color: #252831;
+        color: #fff;
         @extend %tp-ff-roboto;
         border: 0;
         @include tp-placeholder {
-          color: var(--tp-text-1);
+          color: rgba(255, 255, 255, 0.7);
         }
       }
     }
@@ -178,7 +178,7 @@
         @include transform(translateY(-50%));
         width: 1px;
         height: 20px;
-        background-color: rgba($color: $black, $alpha: 0.3);
+        background-color: rgba($color: #fff, $alpha: 0.3);
       }
       & .nice-select {
         border: 0;
@@ -186,8 +186,9 @@
         line-height: 46px;
         font-size: 14px;
         @extend %tp-ff-roboto;
-        color: var(--tp-common-black);
+        color: #fff;
         padding-right: 20px;
+        background-color: #252831;
       }
     }
     &-btn {
@@ -199,7 +200,7 @@
         height: 46px;
         line-height: 46px;
         background-color: var(--tp-theme-primary);
-        color: var(--tp-common-white);
+        color: #fff;
 
         & svg {
           @extend %tp-svg-y-2;
@@ -215,12 +216,13 @@
         width: 44px;
         line-height: 40px;
         text-align: center;
-        border: 2px solid rgba($color: $black, $alpha: 0.1);
+        border: 2px solid rgba($color: #fff, $alpha: 0.1);
         border-radius: 50%;
         margin-right: 10px;
 
         & svg {
           @extend %tp-svg-y-2;
+          color: #fff;
         }
         & a {
           display: inline-block;
@@ -234,7 +236,7 @@
         font-size: 12px;
         font-weight: 500;
         display: inline-block;
-        color: var(--tp-text-1);
+        color: rgba(255, 255, 255, 0.7);
         line-height: 1;
       }
     }
@@ -244,11 +246,13 @@
       font-weight: 500;
       margin-bottom: 0;
       line-height: 1;
+      color: #fff;
     }
   }
   &-main {
     padding-top: 27px;
     padding-bottom: 27px;
+    background: #252831;
 
     @media #{$md, $sm, $xs} {
       padding-top: 15px;
@@ -257,7 +261,8 @@
   }
   &-bottom {
     &-border {
-      border-top: 1px solid rgba($color: $black, $alpha: 0.1);
+      border-top: 1px solid rgba($color: #fff, $alpha: 0.1);
+      background: #252831;
     }
   }
   &-action {
@@ -274,7 +279,7 @@
     }
     &-btn {
       font-size: 20px;
-      color: var(--tp-common-black);
+      color: #fff;
       position: relative;
       display: inline-block;
       &:hover {
@@ -292,11 +297,11 @@
       text-align: center;
       border-radius: 50%;
       background-color: var(--tp-pink-1);
-      color: var(--tp-common-white);
+      color: #fff;
       @extend %tp-ff-roboto;
       font-size: 12px;
       font-weight: 700;
-      border: 2px solid var(--tp-common-white);
+      border: 2px solid #252831;
     }
   }
   &-contact {
@@ -313,7 +318,7 @@
     &-content {
       & h5 {
         @extend %tp-ff-roboto;
-        color: var(--tp-text-2);
+        color: rgba(255, 255, 255, 0.7);
         font-size: 12px;
         font-weight: 500;
         margin-bottom: 2px;
@@ -323,10 +328,11 @@
         @extend %tp-ff-roboto;
         font-weight: 500;
         font-size: 14px;
-        color: var(--tp-common-black);
+        color: #fff;
         margin-bottom: 0;
         line-height: 1;
         & a {
+          color: #fff;
           &:hover {
             color: var(--tp-theme-primary);
           }
@@ -348,6 +354,7 @@
   & .login_text {
     font-size: 18px;
     font-weight: 500;
+    color: #fff;
   }
 }
 
@@ -371,9 +378,9 @@
     position: relative;
     display: flex;
     align-items: center;
-    background-color: var(--tp-common-white);
+    background-color: #252831;
     border-radius: 30px;
-    border: 1.8px solid #e0e0e0;
+    border: 1.8px solid rgba(255, 255, 255, 0.2);
     overflow: hidden;
     width: 100%;
     transition: all 0.3s ease;
@@ -390,11 +397,11 @@
     border: none !important;
     background: transparent;
     font-size: 14px;
-    color: var(--tp-common-black);
+    color: #fff;
     @extend %tp-ff-roboto;
 
     &::placeholder {
-      color: #999;
+      color: rgba(255, 255, 255, 0.5);
     }
 
     &:focus {
@@ -415,7 +422,7 @@
     svg {
       width: 18px;
       height: 18px;
-      color: #999;
+      color: rgba(255, 255, 255, 0.7);
     }
 
     &:hover svg {

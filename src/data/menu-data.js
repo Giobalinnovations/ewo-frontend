@@ -80,33 +80,11 @@ export const mobile_menu = [
     homes: true,
     title: 'Home',
     link: '/',
-    // home_pages: [
-    //   {
-    //     img: home_1,
-    //     title: 'Electronics',
-    //     link: '/',
-    //   },
-    //   {
-    //     img: home_2,
-    //     title: 'Fashion',
-    //     link: '/home-2',
-    //   },
-    //   {
-    //     img: home_3,
-    //     title: 'Beauty',
-    //     link: '/home-3',
-    //   },
-    //   {
-    //     img: home_4,
-    //     title: 'Jewelry',
-    //     link: '/home-4',
-    //   },
-    // ],
   },
   {
     id: 2,
     sub_menu: true,
-    title: 'Products',
+    title: 'Shop',
     link: '/shop',
     // sub_menus: [
     //   { title: 'Shop', link: '/shop' },
@@ -119,31 +97,7 @@ export const mobile_menu = [
     //   { title: 'Variations Swatches', link: '/product-details-swatches' },
     // ],
   },
-  {
-    id: 3,
-    sub_menu: true,
-    title: 'eCommerce',
-    link: '/cart',
-    // sub_menus: [
-    //   { title: 'Shopping Cart', link: '/cart' },
-    //   { title: 'Compare', link: '/compare' },
-    //   { title: 'Wishlist', link: '/wishlist' },
-    //   { title: 'Checkout', link: '/checkout' },
-    //   { title: 'My account', link: '/profile' },
-    // ],
-  },
-  {
-    id: 4,
-    sub_menu: true,
-    title: 'More Pages',
-    link: '/login',
-    // sub_menus: [
-    //   { title: 'Login', link: '/login' },
-    //   { title: 'Register', link: '/register' },
-    //   { title: 'Forgot Password', link: '/forgot' },
-    //   { title: '404 Error', link: '/404' },
-    // ],
-  },
+
   {
     id: 4,
     single_link: true,
@@ -154,7 +108,7 @@ export const mobile_menu = [
     id: 5,
     sub_menu: true,
     title: 'Blog',
-    link: '/blog',
+    link: '/#',
     // sub_menus: [
     //   { title: 'Blog Standard', link: '/blog' },
     //   { title: 'Blog Grid', link: '/blog-grid' },

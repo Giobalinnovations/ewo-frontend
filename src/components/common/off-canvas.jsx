@@ -48,7 +48,7 @@ const OffCanvas = ({
             <div className="offcanvas__top mb-70 d-flex justify-content-between align-items-center">
               <div className="offcanvas__logo logo">
                 <Link href="/">
-                  <Image src={logo} alt="logo" />
+                  <Image src={logo} alt="logo" width={120} />
                 </Link>
               </div>
             </div>

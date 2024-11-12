@@ -1,8 +1,15 @@
 'use client';
 import React from 'react';
-import { Navigation, Pagination, EffectFade } from 'swiper/modules';
+import {
+  Navigation,
+  Pagination,
+  EffectFade,
+  Autoplay,
+  EffectCreative,
+} from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 // slider data
 const sliderData = [
@@ -37,8 +44,23 @@ const HomeHeroSlider = () => {
     <section className="hero-slider">
       <Swiper
         slidesPerView={1}
-        effect="fade"
+        effect="creative"
+        creativeEffect={{
+          prev: {
+            shadow: true,
+            translate: ['-20%', 0, -1],
+          },
+          next: {
+            translate: ['100%', 0, 0],
+          },
+        }}
         loop={true}
+        speed={1500}
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }}
         navigation={{
           nextEl: '.hero-slider-next',
           prevEl: '.hero-slider-prev',
@@ -46,39 +68,46 @@ const HomeHeroSlider = () => {
         pagination={{
           el: '.hero-slider-pagination',
           clickable: true,
+          dynamicBullets: true,
+          renderBullet: function (index, className) {
+            return '<span class="' + className + '"></span>';
+          },
         }}
-        modules={[Navigation, Pagination, EffectFade]}
+        grabCursor={true}
+        modules={[Navigation, Pagination, EffectCreative, Autoplay]}
         className="hero-slider-container"
       >
         {sliderData.map(slide => (
           <SwiperSlide key={slide.id} className="hero-slide">
-            {/* Desktop Image */}
-            <div className="hero-slide-desktop">
-              <Image
-                src={slide.desktopImg}
-                alt={slide.alt}
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 100vw"
-                quality={95}
-                className="hero-slide-img"
-                style={{ objectFit: 'contain' }}
-              />
-            </div>
+            <Link href="/shop" className="block w-full h-full">
+              {/* Desktop Image */}
+              <div className="hero-slide-desktop">
+                <Image
+                  src={slide.desktopImg}
+                  alt={slide.alt}
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 100vw"
+                  quality={95}
+                  className="hero-slide-img"
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>
 
-            {/* Mobile Image */}
-            <div className="hero-slide-mobile">
-              <Image
-                src={slide.mobileImg}
-                alt={slide.alt}
-                fill
-                priority
-                sizes="100vw"
-                quality={90}
-                className="hero-slide-img"
-                style={{ objectFit: 'contain' }}
-              />
-            </div>
+              {/* Mobile Image */}
+              <div className="hero-slide-mobile">
+                <Image
+                  src={slide.mobileImg}
+                  alt={slide.alt}
+                  fill
+                  priority
+                  sizes="100vw"
+                  quality={90}
+                  className="hero-slide-img"
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>
+            </Link>
           </SwiperSlide>
         ))}
 
