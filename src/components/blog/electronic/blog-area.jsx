@@ -58,7 +58,7 @@ const BlogArea = () => {
               >
                 {blogs.map(blog => (
                   <SwiperSlide key={blog.id}>
-                    <BlogItem blog={blog} variant="" />
+                    <BlogItem blog={blog} />
                   </SwiperSlide>
                 ))}
               </Swiper>

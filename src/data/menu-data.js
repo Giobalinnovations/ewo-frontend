@@ -54,7 +54,7 @@ const menu_data = [
     id: 5,
     sub_menu: true,
     title: 'Blog',
-    link: '#',
+    link: '/blog',
     // sub_menus: [
     //   { title: 'Blog Standard', link: '/blog' },
     //   { title: 'Blog Grid', link: '/blog-grid' },
@@ -108,7 +108,7 @@ export const mobile_menu = [
     id: 5,
     sub_menu: true,
     title: 'Blog',
-    link: '#',
+    link: '/blog',
     // sub_menus: [
     //   { title: 'Blog Standard', link: '/blog' },
     //   { title: 'Blog Grid', link: '/blog-grid' },
