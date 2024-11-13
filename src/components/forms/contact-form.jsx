@@ -5,20 +5,22 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 // internal
 import ErrorMsg from '../common/error-msg';
-import { notifySuccess } from '@/utils/toast';
+import { notifySuccess, notifyError } from '@/utils/toast';
+import { useSubmitContactMutation } from '@/redux/features/contact/contactApi';
+import LoadingSpinner from '../common/loading-spinner';
 
 // schema
 const schema = Yup.object().shape({
   name: Yup.string().required().label('Name'),
   email: Yup.string().required().email().label('Email'),
   subject: Yup.string().required().label('Subject'),
-  message: Yup.string().required().label('Subject'),
-  remember: Yup.bool()
-    .oneOf([true], 'You must agree to the terms and conditions to proceed.')
-    .label('Terms and Conditions'),
+  message: Yup.string().required().label('Message'),
 });
 
 const ContactForm = () => {
+  // rtk query mutation
+  const [submitContact, { isLoading }] = useSubmitContactMutation();
+
   // react hook form
   const {
     register,
@@ -28,13 +30,16 @@ const ContactForm = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  // on submit
-  const onSubmit = data => {
-    if (data) {
-      notifySuccess('Message sent successfully!');
-    }
 
-    reset();
+  // on submit
+  const onSubmit = async data => {
+    try {
+      const response = await submitContact(data).unwrap();
+      notifySuccess('Message sent successfully!');
+      reset();
+    } catch (error) {
+      notifyError(error?.data?.message || 'Something went wrong!');
+    }
   };
 
   return (
@@ -43,11 +48,12 @@ const ContactForm = () => {
         <div className="tp-contact-input-box">
           <div className="tp-contact-input">
             <input
-              {...register('name', { required: `Name is required!` })}
+              {...register('name')}
               name="name"
               id="name"
               type="text"
               placeholder="John Doe"
+              disabled={isLoading}
             />
           </div>
           <div className="tp-contact-input-title">
@@ -58,11 +64,12 @@ const ContactForm = () => {
         <div className="tp-contact-input-box">
           <div className="tp-contact-input">
             <input
-              {...register('email', { required: `Email is required!` })}
+              {...register('email')}
               name="email"
               id="email"
               type="email"
               placeholder="john@doe.com"
+              disabled={isLoading}
             />
           </div>
           <div className="tp-contact-input-title">
@@ -73,11 +80,12 @@ const ContactForm = () => {
         <div className="tp-contact-input-box">
           <div className="tp-contact-input">
             <input
-              {...register('subject', { required: `Subject is required!` })}
+              {...register('subject')}
               name="subject"
               id="subject"
               type="text"
               placeholder="Write your subject"
+              disabled={isLoading}
             />
           </div>
           <div className="tp-contact-input-title">
@@ -88,10 +96,11 @@ const ContactForm = () => {
         <div className="tp-contact-input-box">
           <div className="tp-contact-input">
             <textarea
-              {...register('message', { required: `Message is required!` })}
+              {...register('message')}
               id="message"
               name="message"
               placeholder="Write your message here..."
+              disabled={isLoading}
             />
           </div>
           <div className="tp-contact-input-title">
@@ -100,25 +109,23 @@ const ContactForm = () => {
           <ErrorMsg msg={errors.message?.message} />
         </div>
       </div>
-      <div className="tp-contact-suggetions mb-20">
-        <div className="tp-contact-remeber">
-          <input
-            {...register('remember', {
-              required: `Terms and Conditions is required!`,
-            })}
-            name="remember"
-            id="remember"
-            type="checkbox"
-          />
-          <label htmlFor="remember">
-            Save my name, email, and website in this browser for the next time I
-            comment.
-          </label>
-          <ErrorMsg msg={errors.remember?.message} />
-        </div>
-      </div>
       <div className="tp-contact-btn">
-        <button type="submit">Send Message</button>
+        <button
+          type="submit"
+          disabled={isLoading}
+          className={`submit-btn ${
+            isLoading ? 'opacity-50 cursor-not-allowed' : ''
+          }`}
+        >
+          {isLoading ? (
+            <>
+              <LoadingSpinner />
+              Sending...
+            </>
+          ) : (
+            'Send Message'
+          )}
+        </button>
       </div>
     </form>
   );
