@@ -1,20 +1,19 @@
-import Wrapper from '@/layout/wrapper';
+import BlogPageArea from '@/components/blog/blog-page-area';
+import Footer6 from '@/layout/footers/footer-6';
 import HeaderTwo from '@/layout/headers/header-2';
-import BlogBreadcrumb from '@/components/breadcrumb/blog-breadcrumb';
-import BlogPostboxArea from '@/components/blog/blog-postox/blog-postbox-area';
-import Footer from '@/layout/footers/footer';
 
 export const metadata = {
-  title: 'ewo - Blog Page',
+  title: 'Blog - Latest Auto Parts News & Updates',
+  description:
+    'Stay updated with the latest news and insights about auto parts and vehicle maintenance.',
 };
 
 export default function BlogPage() {
   return (
-    <Wrapper>
+    <>
       <HeaderTwo style_2={true} />
-      <BlogBreadcrumb />
-      <BlogPostboxArea />
-      <Footer primary_style={true} />
-    </Wrapper>
+      <BlogPageArea />
+      <Footer6 variant="gradient" />
+    </>
   );
 }

@@ -38,13 +38,7 @@ export default function HomePage() {
       {/* <FashionTestimonial /> */}
       <BeautyTestimonial />
       <BlogArea />
-      {/* <CtaArea /> */}
-
-      {/* <Footer /> */}
-      {/* <Footer6 variant="light" /> */}
-      {/* <Footer6 variant="light-modern" /> */}
       <Footer6 variant="gradient" />
-      {/* <Footer6 variant="elegant" /> */}
     </Wrapper>
   );
 }

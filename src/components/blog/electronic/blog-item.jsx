@@ -7,7 +7,7 @@ const BlogItem = ({ blog, variant = 'default' }) => {
   return (
     <div className={`tp-blog-item tp-blog-item-${variant} mb-50`}>
       <Link
-        href={`/blog-details/${blog.id}`}
+        href={`/blog/${blog.slug ?? blog.id}`}
         className="tp-blog-thumb p-relative fix"
         style={{ marginBottom: '0px!important' }}
       >
@@ -36,7 +36,7 @@ const BlogItem = ({ blog, variant = 'default' }) => {
             variant === 'minimal' ? 'tp-blog-title-sm' : ''
           }`}
         >
-          <Link href={`/blog-details/${blog.id}`}>{blog.title}</Link>
+          <Link href={`/blog/${blog.slug ?? blog.id}`}>{blog.title}</Link>
         </h3>
 
         {variant !== 'minimal' && (
@@ -46,7 +46,10 @@ const BlogItem = ({ blog, variant = 'default' }) => {
         )}
 
         <div className="tp-blog-btn">
-          <Link href={`/blog-details/${blog.id}`} className="read-more-btn">
+          <Link
+            href={`/blog/${blog.slug ?? blog.id}`}
+            className="read-more-btn"
+          >
             Read More
             <span className="arrow-icon">
               <ArrowRightLong />
