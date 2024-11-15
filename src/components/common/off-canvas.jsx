@@ -97,7 +97,7 @@ const OffCanvas = ({
           </div>
           <div className="offcanvas__bottom">
             <div className="offcanvas__footer d-flex align-items-center justify-content-between">
-              <div className="offcanvas__currency-wrapper currency">
+              {/* <div className="offcanvas__currency-wrapper currency">
                 <span
                   onClick={handleCurrencyActive}
                   className="offcanvas__currency-selected-currency tp-currency-toggle"
@@ -115,8 +115,8 @@ const OffCanvas = ({
                   <li>BDT </li>
                   <li>INR</li>
                 </ul>
-              </div>
-              <div className="offcanvas__select language">
+              </div> */}
+              {/* <div className="offcanvas__select language">
                 <div className="offcanvas__lang d-flex align-items-center justify-content-md-end">
                   <div className="offcanvas__lang-img mr-15">
                     <Image src={language_img} alt="language-flag" />
@@ -141,7 +141,7 @@ const OffCanvas = ({
                     </ul>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
