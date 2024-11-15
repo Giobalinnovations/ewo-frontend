@@ -1069,7 +1069,7 @@
             hsl(343.98deg 73.52% 42.94%)
           );
           transform: translateY(-2px);
-          color: white;
+          color: #333;
         }
       }
 
@@ -1151,7 +1151,8 @@
       }
 
       .featured__image-wrapper {
-        padding-top: 100%;
+        // padding-top: 100%;
+        padding-top: 71%;
         margin-bottom: 20px;
         position: relative;
         border-radius: 20px;
@@ -1622,7 +1623,8 @@
       }
 
       .featured__image-wrapper {
-        padding-top: 100%;
+        // padding-top: 100%;
+        padding-top: 71%;
         border-radius: 10px;
         overflow: hidden;
         background: #f8f9fa;
@@ -1774,7 +1776,8 @@
   &__image-wrapper {
     position: relative;
     width: 100%;
-    padding-top: 100%; // This creates a 1:1 aspect ratio
+    // padding-top: 100%;
+    padding-top: 71%;
     overflow: hidden;
   }
 
