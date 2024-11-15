@@ -2,14 +2,19 @@
 import React from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { FreeMode, Autoplay } from 'swiper/modules';
 // internal
 import ErrorMsg from '../common/error-msg';
 import { useGetProductTypeCategoryQuery } from '@/redux/features/categoryApi';
 import HomeCateLoader from '../loader/home/home-cate-loader';
 import SectionHeader from '../common/SectionHeader';
 
-const ElectronicCategory = () => {
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/free-mode';
+
+const ElectronicCategory = ({ variant = 'modern' }) => {
   const {
     data: categories,
     isLoading,
@@ -28,6 +33,112 @@ const ElectronicCategory = () => {
     );
   };
 
+  const renderCategoryCard = item => {
+    switch (variant) {
+      case 'minimal':
+        return (
+          <div
+            className="category-card category-card--minimal"
+            onClick={() => handleCategoryRoute(item.parent)}
+          >
+            <div className="category-card__image">
+              <Image
+                src={item.img}
+                alt={item.parent}
+                width={200}
+                height={200}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
+                priority={false}
+                loading="lazy"
+                quality={75}
+              />
+            </div>
+            <div className="category-card__content">
+              <h3 className="category-card__title">{item.parent}</h3>
+              <span className="category-card__count">
+                {item.products.length} items
+              </span>
+            </div>
+          </div>
+        );
+
+      case 'elegant':
+        return (
+          <div
+            className="category-card category-card--elegant"
+            onClick={() => handleCategoryRoute(item.parent)}
+          >
+            <div className="category-card__image">
+              <Image
+                src={item.img}
+                alt={item.parent}
+                width={200}
+                height={200}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
+                priority={false}
+                loading="lazy"
+                quality={75}
+              />
+              <div className="category-card__overlay">
+                <span className="category-card__explore">Explore Now</span>
+              </div>
+            </div>
+            <div className="category-card__content">
+              <h3 className="category-card__title">{item.parent}</h3>
+              <span className="category-card__count">
+                {item.products.length} items
+              </span>
+            </div>
+          </div>
+        );
+
+      default: // modern
+        return (
+          <div
+            className="category-card category-card--modern"
+            onClick={() => handleCategoryRoute(item.parent)}
+          >
+            <div className="category-card__image">
+              <Image
+                src={item.img}
+                alt={item.parent}
+                width={200}
+                height={200}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
+                priority={false}
+                loading="lazy"
+                quality={75}
+              />
+            </div>
+            <div className="category-card__content">
+              <h3 className="category-card__title">{item.parent}</h3>
+              <span className="category-card__count">
+                {item.products.length} items
+              </span>
+              <div className="category-card__icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        );
+    }
+  };
+
   // decide what to render
   let content = null;
 
@@ -43,78 +154,65 @@ const ElectronicCategory = () => {
   if (!isLoading && !isError && categories?.result?.length > 0) {
     const category_items = categories.result;
     content = (
-      <div className="good-categories__grid">
-        {category_items.map(item => (
-          <div
-            className="good-categories__item"
-            key={item._id}
-            onClick={() => handleCategoryRoute(item.parent)}
-          >
-            <div className="good-categories__item-image">
-              <Image
-                src={item.img}
-                alt={item.parent}
-                width={200}
-                height={200}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                style={{
-                  width: '100%',
-                  height: 'auto',
-                }}
-                priority={false}
-                loading="lazy"
-                quality={75}
-                placeholder="blur"
-                blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                  shimmer(200, 200)
-                )}`}
-              />
-            </div>
-            <div className="good-categories__item-content">
-              <h3 className="good-categories__item-title">{item.parent}</h3>
-              <p className="good-categories__item-count">
-                {item.products.length} items
-              </p>
-            </div>
-          </div>
-        ))}
+      <div className="category-slider">
+        <Swiper
+          modules={[FreeMode, Autoplay]}
+          freeMode={{
+            enabled: true,
+            sticky: true,
+            momentumRatio: 0.25,
+            momentumVelocityRatio: 0.5,
+          }}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: true,
+            pauseOnMouseEnter: true,
+          }}
+          grabCursor={true}
+          breakpoints={{
+            0: {
+              slidesPerView: 2.2,
+              spaceBetween: 10,
+            },
+            480: {
+              slidesPerView: 3.2,
+              spaceBetween: 15,
+            },
+            768: {
+              slidesPerView: 4.2,
+              spaceBetween: 20,
+            },
+            992: {
+              slidesPerView: 5.2,
+              spaceBetween: 20,
+            },
+            1200: {
+              slidesPerView: 6.2,
+              spaceBetween: 20,
+            },
+          }}
+          className={`category-swiper category-swiper--${variant}`}
+        >
+          {category_items.map((item, index) => (
+            <SwiperSlide key={index}>{renderCategoryCard(item)}</SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     );
   }
 
   return (
-    <section className="good-categories">
+    <section className="category-section">
       <div className="container">
         <SectionHeader
           title="Top Categories"
-          subtitle="Don't miss out on this week's deals"
+          subtitle="Discover our premium selection of quality auto parts"
           viewAllLink="/shop"
-          className="good-categories__header"
         />
         {content}
       </div>
     </section>
   );
 };
-
-// Helper function to generate shimmer effect
-const shimmer = (w, h) => `
-<svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <defs>
-    <linearGradient id="g">
-      <stop stop-color="#333" offset="20%" />
-      <stop stop-color="#222" offset="50%" />
-      <stop stop-color="#333" offset="70%" />
-    </linearGradient>
-  </defs>
-  <rect width="${w}" height="${h}" fill="#333" />
-  <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
-  <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
-</svg>`;
-
-const toBase64 = str =>
-  typeof window === 'undefined'
-    ? Buffer.from(str).toString('base64')
-    : window.btoa(str);
 
 export default ElectronicCategory;
