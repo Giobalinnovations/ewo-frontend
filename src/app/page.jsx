@@ -18,6 +18,7 @@ import {
 
 import BeautyTestimonial from '@/components/testimonial/beauty-testimonial';
 import Footer6 from '@/layout/footers/footer-6';
+import BannerDual from '@/components/banner2/BannerDual';
 
 export default function HomePage() {
   return (
@@ -26,8 +27,10 @@ export default function HomePage() {
       <div className="pb-35">
         <HomeHeroSlider />
       </div>
+
       <ElectronicCategory />
       <ProductArea activeTabText="new" />
+      <BannerDual />
       <Banner2 items={[...bannerDataHome2]} columns={3} showBadge={false} />
       <OfferProducts />
       <ProductGadgetArea />
