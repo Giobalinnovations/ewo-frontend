@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Navigation, Pagination, EffectFade, Autoplay } from 'swiper/modules';
+import { Pagination, EffectFade, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -12,7 +12,7 @@ const sliderData = [
     desktopImg:
       'https://res.cloudinary.com/datdyxl7o/image/upload/f_auto,q_auto/v1731326596/EWO_BANNER_2_1_lsyohw.jpg',
     mobileImg:
-      'https://res.cloudinary.com/datdyxl7o/image/upload/f_auto,q_auto,w_768/v1731326596/EWO_BANNER_2_1_lsyohw.jpg',
+      'https://res.cloudinary.com/datdyxl7o/image/upload/q_auto/v1732085444/EWO_430x360_01_sjjtr8.webp',
     alt: 'Hero banner 1',
   },
   {
@@ -20,7 +20,7 @@ const sliderData = [
     desktopImg:
       'https://res.cloudinary.com/datdyxl7o/image/upload/f_auto,q_auto/v1731326622/EWO_BANNER_rtzlvt.jpg',
     mobileImg:
-      'https://res.cloudinary.com/datdyxl7o/image/upload/f_auto,q_auto,w_768/v1731326622/EWO_BANNER_rtzlvt.jpg',
+      'https://res.cloudinary.com/datdyxl7o/image/upload/q_auto/v1732085444/EWO_430x360_02_zr1lmq.webp',
     alt: 'Hero banner 2',
   },
   {
@@ -28,7 +28,7 @@ const sliderData = [
     desktopImg:
       'https://res.cloudinary.com/datdyxl7o/image/upload/f_auto,q_auto/v1731326612/EWO_BANNER_2_vb5vzz.jpg',
     mobileImg:
-      'https://res.cloudinary.com/datdyxl7o/image/upload/f_auto,q_auto,w_768/v1731326612/EWO_BANNER_2_vb5vzz.jpg',
+      'https://res.cloudinary.com/datdyxl7o/image/upload/q_auto/v1732085444/EWO_430x360_03_ck5v0u.webp',
     alt: 'Hero banner 3',
   },
 ];
@@ -43,15 +43,11 @@ const HomeHeroSlider = () => {
           crossFade: true,
         }}
         loop={true}
-        speed={1500}
+        speed={2000}
         autoplay={{
-          delay: 2000,
+          delay: 4000,
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
-        }}
-        navigation={{
-          nextEl: '.hero-slider-next',
-          prevEl: '.hero-slider-prev',
         }}
         pagination={{
           el: '.hero-slider-pagination',
@@ -62,7 +58,7 @@ const HomeHeroSlider = () => {
           },
         }}
         grabCursor={true}
-        modules={[Navigation, Pagination, EffectFade, Autoplay]}
+        modules={[Pagination, EffectFade, Autoplay]}
         className="hero-slider-container"
       >
         {sliderData.map(slide => (
@@ -73,17 +69,22 @@ const HomeHeroSlider = () => {
                 <Image
                   src={slide.desktopImg}
                   alt={slide.alt}
-                  fill
+                  width={1920}
+                  height={800}
                   priority
-                  sizes="(max-width: 768px) 100vw, 100vw"
+                  sizes="100vw"
                   quality={95}
                   className="hero-slide-img"
-                  style={{ objectFit: 'contain' }}
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    display: 'block',
+                  }}
                 />
               </div>
 
               {/* Mobile Image */}
-              <div className="hero-slide-mobile">
+              <div className="hero-slide-mobile md:hidden w-full">
                 <Image
                   src={slide.mobileImg}
                   alt={slide.alt}
@@ -92,34 +93,16 @@ const HomeHeroSlider = () => {
                   sizes="100vw"
                   quality={90}
                   className="hero-slide-img"
-                  style={{ objectFit: 'contain' }}
+                  style={{
+                    objectFit: 'cover',
+                    width: '100%',
+                    height: '100%',
+                  }}
                 />
               </div>
             </Link>
           </SwiperSlide>
         ))}
-
-        {/* Navigation Buttons */}
-        <button className="hero-slider-prev">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-          >
-            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-          </svg>
-        </button>
-        <button className="hero-slider-next">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-          >
-            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
-          </svg>
-        </button>
 
         {/* Pagination */}
         <div className="hero-slider-pagination"></div>
