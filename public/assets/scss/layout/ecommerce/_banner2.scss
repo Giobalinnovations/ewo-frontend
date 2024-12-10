@@ -500,3 +500,40 @@
     }
   }
 }
+
+.banner2-dual {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+  margin: 0 auto;
+  max-width: 100%;
+
+  @media (min-width: 768px) {
+    grid-template-columns: minmax(auto, 796px) minmax(auto, 386px);
+  }
+
+  .banner2-item-simple {
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+
+    &.banner2-large {
+      @media (min-width: 768px) {
+        max-width: 796px;
+      }
+    }
+
+    &.banner2-small {
+      @media (min-width: 768px) {
+        max-width: 386px;
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    .banner2-item-simple {
+      width: 100%;
+    }
+  }
+}
